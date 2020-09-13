@@ -40,10 +40,10 @@
                         @foreach (var ingredient in Item.Ingredients)
                         {
                             var primaryText = $"{ingredient.Title}: {ingredient.Amount} {ingredient.UnitOfMeasure}";
-                            <MatListItem>
+                            <MatListItem Style="height: auto; min-height: 48px;">
                                 <MatListItemText>
-                                    <MatListItemPrimaryText>@primaryText</MatListItemPrimaryText>
-                                    <MatListItemSecondaryText>@ingredient.AdditionalNotes</MatListItemSecondaryText>
+                                    <MatListItemPrimaryText Style="white-space: normal">@primaryText</MatListItemPrimaryText>
+                                    <MatListItemSecondaryText Style="white-space: normal">@ingredient.AdditionalNotes</MatListItemSecondaryText>
                                 </MatListItemText>
                             </MatListItem>
                         }
