@@ -1,22 +1,30 @@
 ﻿@page "/recipe/{title}"
 @inject NavigationManager NavigationManager
+@inject Task<IEnumerable<RecipeItem>> _getRecipes
 
-<div class="mat-layout-grid">
-    <div class="mat-layout-grid-inner">
-        <div class="mat-layout-grid-cell">
-            <RecipeOverviewComponent Item="Item"></RecipeOverviewComponent>
-        </div>
-
-        @foreach (var (number, step) in Item.Steps)
-        {
+@if (Item != null)
+{
+    <div class="mat-layout-grid">
+        <div class="mat-layout-grid-inner">
             <div class="mat-layout-grid-cell">
-                <RecipeStep Step="step" StepNumber="number"></RecipeStep>
+                <RecipeOverviewComponent Item="Item"></RecipeOverviewComponent>
             </div>
-        }
+
+            @{
+                var number = 0;
+                @foreach (var step in Item.Steps)
+                {
+                    <div class="mat-layout-grid-cell">
+                        <RecipeStep Step="step" StepNumber="@(++number)"></RecipeStep>
+                    </div>
+                }
+            }
+        </div>
     </div>
-</div>
+}
 
 @code {
+    [CascadingParameter(Name = "PageLayout")] PageLayout Layout { get; set; }
     [Parameter]
     public string Title { get; set; }
 
@@ -25,12 +33,19 @@
     protected override void OnInitialized()
     {
         base.OnInitialized();
+        if (Layout == null) return;
+        Layout.Reset();
+    }
 
+    protected override async Task OnInitializedAsync()
+    {
+        RecipeListComponent.AllRecipes = await _getRecipes;
         Item = RecipeListComponent.AllRecipes.FirstOrDefault(x => x.Title == Title);
 
         if (Item == null)
         {
             NavigationManager.NavigateTo("404");
         }
+        await base.OnInitializedAsync();
     }
 }

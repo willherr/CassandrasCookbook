@@ -1,6 +1,7 @@
 ﻿@page "/"
 @layout PageLayout
 @inherits RecipeListComponent
+@inject Task<IEnumerable<RecipeItem>> _getRecipes
 
 <Title>Cassandra's Cookbook</Title>
 
@@ -30,5 +31,11 @@
         base.OnInitialized();
         if (Layout == null) return;
         Layout.Reset();
+    }
+
+    protected override async Task OnInitializedAsync()
+    {
+        AllRecipes = await _getRecipes;
+        await base.OnInitializedAsync();
     }
 }

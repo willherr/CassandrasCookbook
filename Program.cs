@@ -9,6 +9,9 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Blazored.LocalStorage;
 using Toolbelt.Blazor.Extensions.DependencyInjection;
+using CassandrasCookbook.Shared.Recipe;
+using MatBlazor;
+using System.Net.Http.Json;
 
 namespace CassandrasCookbook
 {
@@ -22,7 +25,8 @@ namespace CassandrasCookbook
             builder.Services
                 .AddTransient(sp => new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) })
                 .AddHeadElementHelper()
-                .AddBlazoredLocalStorage(config => config.JsonSerializerOptions.WriteIndented = true);
+                .AddBlazoredLocalStorage(config => config.JsonSerializerOptions.WriteIndented = true)
+                .AddSingleton(async p => await p.GetRequiredService<HttpClient>().GetFromJsonAsync<IEnumerable<RecipeItem>>("data/recipes.json").ConfigureAwait(false)); ;
 
             await builder.Build().RunAsync();
         }

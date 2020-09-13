@@ -1,6 +1,7 @@
 ﻿@page "/dessert"
 @layout PageLayout
 @inherits RecipeListComponent
+@inject Task<IEnumerable<RecipeItem>> _getRecipes
 
 <div class="mat-layout-grid">
     <div class="mat-layout-grid-inner">
@@ -25,5 +26,11 @@
         if (Layout == null) return;
         Layout.Reset();
         Layout.Layout.Title = "Dessert";
+    }
+
+    protected override async Task OnInitializedAsync()
+    {
+        AllRecipes = await _getRecipes;
+        await base.OnInitializedAsync();
     }
 }

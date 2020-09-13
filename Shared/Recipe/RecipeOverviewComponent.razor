@@ -6,14 +6,28 @@
             <MatHeadline6 Class="m-0">@Item.Title</MatHeadline6>
         </MatBody2>
         <MatCardMedia Wide="true" ImageUrl="@Item.ImageUrl"></MatCardMedia>
-        @if (!IsListView && Item.HasAdditionalInformation)
-        {
-            <MatBody2 Class="pl-1 pr-1">
-                @if (!string.IsNullOrEmpty(Item.Introduction))
+        <MatBody2 Class="pl-1 pr-1">
+            <div class="d-flex @(!IsListView && Item.HasAdditionalInformation ? "mb-4" : "")">
+                <div style="width: 33%" class="text-center">
+                    <div style="text-decoration: underline">Prep Time</div>
+                    <div>@(Item.PrepTime?.ToString() ?? "?") Minutes</div>
+                </div>
+                <div style="width: 34%" class="text-center">
+                    <div style="text-decoration: underline">Total Time</div>
+                    <div>@(Item.TotalTime?.ToString() ?? "?") Minutes</div>
+                </div>
+                <div style="width: 33%" class="text-center">
+                    <div style="text-decoration: underline">Servings</div>
+                    <div>@(Item.Servings?.ToString() ?? "?")</div>
+                </div>
+            </div>
+            @if (!IsListView && Item.HasAdditionalInformation)
+            {
+                if (!string.IsNullOrEmpty(Item.Introduction))
                 {
-                    @Item.Introduction                    
+                    <span class="mt-2">@Item.Introduction</span>
                 }
-                @if (Item.Ingredients.Any())
+                if (Item.Ingredients.Any())
                 {
                     <MatList Class="p-0 mt-2">
                         <MatListItem>
@@ -28,15 +42,15 @@
                             var primaryText = $"{ingredient.Title}: {ingredient.Amount} {ingredient.UnitOfMeasure}";
                             <MatListItem>
                                 <MatListItemText>
-                                        <MatListItemPrimaryText>@primaryText</MatListItemPrimaryText>
-                                        <MatListItemSecondaryText>@ingredient.AdditionalNotes</MatListItemSecondaryText>
+                                    <MatListItemPrimaryText>@primaryText</MatListItemPrimaryText>
+                                    <MatListItemSecondaryText>@ingredient.AdditionalNotes</MatListItemSecondaryText>
                                 </MatListItemText>
                             </MatListItem>
                         }
                     </MatList>
                 }
-            </MatBody2>
-        }
+            }
+        </MatBody2>
     </MatCardContent>
 </MatCard>
 

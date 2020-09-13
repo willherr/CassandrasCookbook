@@ -1,0 +1,58 @@
+[
+  {
+    "type": "Appetizer", 
+    "title": "Mozzarella Sticks",
+    "introduction": "These are my grandma's favorite appetizer. You will love them.",
+    "imageUrl": "https://static.olocdn.net/menu/applebees/060f209dc400632e3fec451a81bbb7ea.jpg",
+    "prepTime": 3,
+    "totalTime": 10,
+    "servings": 4,
+    "ingredients": [
+      {
+        "title": "Cheese",
+        "amount": 2,
+        "unitOfMeasure": "Sticks"
+      },
+      {
+        "title": "Breadcrumbs",
+        "amount": 4,
+        "unitOfMeasure": "Tablespoons",
+        "additionalInformation": "Meijer Branch"
+      }
+    ],
+    "steps": [
+      {
+        "subtitle": "Get your sticks",
+        "imageUrl": "https://www.thegunnysack.com/wp-content/uploads/2012/09/cutstringcheese.jpg",
+        "instructions": "First, you will need to gather your ingredients. Do that first."
+      },
+      {
+        "instructions": "Finally, make the Mozzarella sticks."
+      }
+    ]
+  },
+
+  {
+    "type": "Breakfast",
+    "title": "Ultimate Pancakes",
+    "imageUrl": "https://i.ytimg.com/vi/7ebZWviUfUA/maxresdefault.jpg"
+  },
+
+  {
+    "type": "Dessert",
+    "title": "Frozen Peanut Butter Cup",
+    "imageUrl": "https://i.pinimg.com/originals/4a/51/9f/4a519f7658f35b94446f31add54dcbc7.jpg"
+  },
+
+  {
+    "type": "Dinner",
+    "title": "Meatloaf",
+    "imageUrl": "https://static01.nyt.com/images/2016/03/21/dining/21COOKING_MEATLOAF2/21COOKING_MEATLOAF2-superJumbo.jpg"
+  },
+
+  {
+    "type": "Lunch",
+    "title": "Peanut Butter Jellies",
+    "imageUrl": "https://rowaytonmarket.com/wp-content/uploads/2016/10/peanut-butter-jelly.jpg"
+  }
+]
