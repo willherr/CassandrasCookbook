@@ -1,0 +1,36 @@
+﻿@page "/recipe/{title}"
+@inject NavigationManager NavigationManager
+
+<div class="mat-layout-grid">
+    <div class="mat-layout-grid-inner">
+        <div class="mat-layout-grid-cell">
+            <RecipeOverviewComponent Item="Item"></RecipeOverviewComponent>
+        </div>
+
+        @foreach (var (number, step) in Item.Steps)
+        {
+            <div class="mat-layout-grid-cell">
+                <RecipeStep Step="step" StepNumber="number"></RecipeStep>
+            </div>
+        }
+    </div>
+</div>
+
+@code {
+    [Parameter]
+    public string Title { get; set; }
+
+    private RecipeItem Item { get; set; }
+
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
+
+        Item = RecipeListComponent.AllRecipes.FirstOrDefault(x => x.Title == Title);
+
+        if (Item == null)
+        {
+            NavigationManager.NavigateTo("404");
+        }
+    }
+}

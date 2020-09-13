@@ -149,6 +149,11 @@ html, body {
     margin-bottom: auto !important;
 }
 
+.my-2 {
+    margin-top: .5rem !important;
+    margin-bottom: .5rem !important;
+}
+
 .mr-1 {
     margin-right: .25rem !important;
 }
@@ -177,8 +182,16 @@ html, body {
     margin-top: 0 !important;
 }
 
+.mt-1 {
+    margin-top: .25rem !important;
+}
+
 .p-0 {
     padding: 0 !important;
+}
+
+.p-1 {
+    padding: .25rem !important;
 }
 
 .p-2 {
@@ -191,7 +204,11 @@ html, body {
 }
 
 .pl-1 {
-    padding: .25rem !important;
+    padding-left: .25rem !important;
+}
+
+.pr-1 {
+    padding-right: .25rem !important; 
 }
 
 .py-0 {
@@ -234,6 +251,7 @@ html, body {
 
 /* These are MatBlazor responsivness breakpoints */
 @media (min-width: 600px) {
+
     .w-sm-auto {
         width: auto !important;
     }

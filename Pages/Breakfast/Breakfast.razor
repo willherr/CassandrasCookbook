@@ -1,0 +1,29 @@
+﻿@page "/breakfast"
+@layout PageLayout
+@inherits RecipeListComponent
+
+<div class="mat-layout-grid">
+    <div class="mat-layout-grid-inner">
+        @foreach (var item in GetRecipes())
+        {
+            <div class="mat-layout-grid-cell">
+                <RecipeOverviewComponent IsListView="true" Item="item"></RecipeOverviewComponent>
+            </div>
+        }
+    </div>
+</div>
+
+
+@code {
+    [CascadingParameter(Name = "PageLayout")] PageLayout Layout { get; set; }
+
+    protected override CassandrasCookbook.Shared.Recipe.Type Type => CassandrasCookbook.Shared.Recipe.Type.Breakfast;
+
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
+        if (Layout == null) return;
+        Layout.Reset();
+        Layout.Layout.Title = "Breakfast";
+    }
+}
