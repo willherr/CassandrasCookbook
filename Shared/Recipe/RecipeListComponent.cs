@@ -73,7 +73,7 @@ namespace CassandrasCookbook.Shared.Recipe
             {
                 Type = Type.Dinner,
                 Title = "Meatloaf",
-                ImageUrl = "http://assets.epicurious.com/photos/57eab27ecf9338f824b78b4b/master/pass/old-fashioned-meat-loaf.jpg"
+                ImageUrl = "https://static01.nyt.com/images/2016/03/21/dining/21COOKING_MEATLOAF2/21COOKING_MEATLOAF2-superJumbo.jpg"
             }
         };
 
@@ -83,7 +83,7 @@ namespace CassandrasCookbook.Shared.Recipe
             {
                 Type = Type.Lunch,
                 Title = "Peanut Butter Jellies",
-                ImageUrl = "http://allthingsd.com/files/2012/08/peanut_butter_jelly430x300.jpeg"
+                ImageUrl = "https://rowaytonmarket.com/wp-content/uploads/2016/10/peanut-butter-jelly.jpg"
             }
         };
     }
