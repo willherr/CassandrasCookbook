@@ -1,0 +1,6 @@
+// just link the <script>s to cdnjs instead of hosting
+{
+  "version": "1.0",
+  "defaultProvider": "cdnjs",
+  "libraries": []
+}
