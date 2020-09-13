@@ -39,7 +39,11 @@
                         <MatListDivider></MatListDivider>
                         @foreach (var ingredient in Item.Ingredients)
                         {
-                            var primaryText = $"{ingredient.Title}: {ingredient.Amount} {ingredient.UnitOfMeasure}";
+                            var primaryText = ingredient.Title;
+                            if (ingredient.Amount.HasValue)
+                            {
+                                primaryText += $": {ingredient.Amount} {ingredient.UnitOfMeasure}";
+                            }
                             <MatListItem Style="height: auto; min-height: 48px;">
                                 <MatListItemText>
                                     <MatListItemPrimaryText Style="white-space: normal">@primaryText</MatListItemPrimaryText>

@@ -1,6 +1,6 @@
 [
   {
-    "type": "Appetizer", 
+    "type": "Appetizer",
     "title": "Mozzarella Sticks",
     "introduction": "These are my grandma's favorite appetizer. You will love them.",
     "imageUrl": "https://static.olocdn.net/menu/applebees/060f209dc400632e3fec451a81bbb7ea.jpg",
@@ -48,6 +48,92 @@
     "type": "Dinner",
     "title": "Meatloaf",
     "imageUrl": "https://static01.nyt.com/images/2016/03/21/dining/21COOKING_MEATLOAF2/21COOKING_MEATLOAF2-superJumbo.jpg"
+  },
+  {
+    "type": "Dinner",
+    "title": "Caramelized Onion Burgers",
+    "introduction": "With Horseradish Aioli & Carrot Fries. EveryPlate meal.",
+    "imageUrl": "https://images.everyplate.com/c_fill,f_auto,fl_lossy,h_550,q_auto,w_1920/everyplate_s3/image/5f086ef1c3795f61c21f5cc7-fae2b9d7.jpg",
+    "prepTime": 10,
+    "totalTime": 35,
+    "servings": 2,
+    "ingredients": [
+      {
+        "title": "Carrots",
+        "amount": 12,
+        "unitOfMeasure": "ounces"
+      },
+      {
+        "title": "Yellow Onion",
+        "amount": 1
+      },
+      {
+        "title": "Garlic",
+        "amount": 1,
+        "unitOfMeasure": "clove"
+      },
+      {
+        "title": "Potato Buns",
+        "amount": 2
+      },
+      {
+        "title": "Ground Beef",
+        "amount": 1,
+        "unitOfMeasure": "pound"
+      },
+      {
+        "title": "Mayonnaise",
+        "amount": 0.25,
+        "unitOfMeasure": "cups"
+      },
+      {
+        "title": "Wasabi",
+        "amount": 1,
+        "unitOfMeasure": "tablespoon"
+      },
+      {
+        "title": "Butter",
+        "amount": 1,
+        "unitOfMeasure": "tablespoon"
+      },
+      {
+        "title": "Sugar",
+        "amount": 1,
+        "unitOfMeasure": "teaspoon"
+      },
+      {
+        "title": "Salt"
+      },
+      {
+        "title": "Pepper"
+      }
+    ],
+    "steps": [
+      {
+        "imageUrl": "https://images.everyplate.com/f_auto,fl_lossy,q_auto,w_540/everyplate_s3/5f086ef1c3795f61c21f5cc7/step-cc5c929c.jpg",
+        "instructions": "Preheat oven to 425 degrees. Wash and dry all produce. Halve, peel, and thinly slice onion. Trim, peel, and cut carrots into long thin sticks, like fries. Peel and finely chop garlic. Halve buns."
+      },
+      {
+        "imageUrl": "https://images.everyplate.com/f_auto,fl_lossy,q_auto,w_540/everyplate_s3/5f086ef1c3795f61c21f5cc7/step-7cd1bf52.jpg",
+        "instructions": "Heat a drizzle of oil in a large pan over medium-high heat. Add onion and a pinch of salt and pepper. Cook, stirring, until softened and lightly browned, 8-10 minutes. Cook, stirring, until caramelized and jammy, 2-3 minutes more. Turn off heat; transfer to a small bowl and set aside. Wipe out pan."
+      },
+      {
+        "imageUrl": "https://images.everyplate.com/f_auto,fl_lossy,q_auto,w_540/everyplate_s3/5f086ef1c3795f61c21f5cc7/step-0d1ff97f.jpg",
+        "instructions": "While onion cooks, toss carrots on a baking sheet with a drizzle of oil; season with salt and pepper. Roast until browned and tender, 15-20 minutes, then transfer to a plate. Maenwhile, shape beef into two 1/2-inch-thick patties, each a bit wider than a burger bun. Season all over with salt and pepper."
+      },
+      {
+        "imageUrl": "https://images.everyplate.com/f_auto,fl_lossy,q_auto,w_540/everyplate_s3/5f086ef1c3795f61c21f5cc7/step-5282c1a7.jpg",
+        "instructions": "In a second small bowl, combine mayonnaise, a pinch of garlic, and a pinch of wasabi. Season with salt and pepper; stir until very smooth."
+      },
+      {
+        "imageUrl": "https://images.everyplate.com/f_auto,fl_lossy,q_auto,w_540/everyplate_s3/5f086ef1c3795f61c21f5cc7/step-d67a028e.jpg",
+        "instructions": "Heat a drizzle of oil in pan used for onion over medium-high heat. Add patties and cook to desired doneness, 3-5 minutes per side."
+      },
+      {
+        "imageUrl": "https://images.everyplate.com/f_auto,fl_lossy,q_auto,w_540/everyplate_s3/5f086ef1c3795f61c21f5cc7/step-388fd2a4.jpg",
+        "instructions": "While patties cook, place 1 TBSP butter in a small microwave-safe bowl; microwave until melted, 30 seconds. Brush onto cut sides of buns. Place buns cut sides up on sheet used for carrots. Toast in oven until golden, 3-5 minutes. Fill toasted buns with patties, caramelized onion, and horseradish aioli. Serve with carrot fries on the side."
+      }
+    ]
   },
 
   {
