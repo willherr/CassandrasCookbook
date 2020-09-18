@@ -1,33 +1,90 @@
 [
   {
     "type": "Appetizer",
-    "title": "Mozzarella Sticks",
-    "introduction": "These are my grandma's favorite appetizer. You will love them.",
+    "title": "Sweet & Sour Meatballs with Sauce",
+    "introduction": "A Mary Kay recipe. *ingredient = for meatball part. **ingredient = for sauce part.",
     "imageUrl": "https://static.olocdn.net/menu/applebees/060f209dc400632e3fec451a81bbb7ea.jpg",
-    "prepTime": 3,
-    "totalTime": 10,
+    "prepTime": 15,
+    "totalTime": 35,
     "servings": 4,
     "ingredients": [
       {
-        "title": "Cheese",
-        "amount": 2,
-        "unitOfMeasure": "Sticks"
+        "title": "*Ground Beef",
+        "amount": 1,
+        "unitOfMeasure": "lb"
       },
       {
-        "title": "Breadcrumbs",
-        "amount": 4,
-        "unitOfMeasure": "Tablespoons",
-        "additionalNotes": "Meijer Brand"
+        "title": "*Egg",
+        "amount": 1
+      },
+      {
+        "title": "*Onion",
+        "amount": 0.25,
+        "unitOfMeasure": "cups",
+        "additionalNotes": "Chopped"
+      },
+      {
+        "title": "*Milk",
+        "amount": 0.25,
+        "unitOfMeasure": "cups"
+      },
+      {
+        "title": "*Worchestershire Sauce",
+        "amount": 1,
+        "unitOfMeasure": "tsp"
+      },
+      {
+        "title": "*Salt & Pepper",
+        "amount": 1,
+        "unitOfMeasure": "pinch",
+        "additionalNotes": "To taste"
+      },
+      {
+        "title": "**Brown Sugar",
+        "amount": 0.5,
+        "unitOfMeasure": "cups",
+        "additionalNotes": "(packed)"
+      },
+      {
+        "title": "**Cornstarch",
+        "amount": 1,
+        "unitOfMeasure": "tbsp"
+      },
+      {
+        "title": "**Pineapple Tidbits",
+        "amount": 13,
+        "unitOfMeasure": "oz",
+        "additionalNotes": "(1 can)"
+      },
+      {
+        "title": "**Soy Sauce",
+        "amount": 1,
+        "unitOfMeasure": "tbsp"
+      },
+      {
+        "title": "**Vinegar",
+        "amount": 0.33,
+        "unitOfMeasure": "cups"
+      },
+      {
+        "title": "**Green Pepper",
+        "amount": 0.5,
+        "unitOfMeasure": "cups",
+        "additionalNotes": "Chopped"
       }
     ],
     "steps": [
       {
-        "subtitle": "Get your sticks",
-        "imageUrl": "https://www.thegunnysack.com/wp-content/uploads/2012/09/cutstringcheese.jpg",
-        "instructions": "First, you will need to gather your ingredients. Do that first."
+        "subtitle": "Balls",
+        "instructions": "Mix all *meatball ingredients and shape into balls. Cook in skillet until brown."
       },
       {
-        "instructions": "Finally, make the Mozzarella sticks."
+        "subtitle": "Bake",
+        "instructions": "Place balls on a baking sheet and bake at 350 degrees for 20 minutes."
+      },
+      {
+        "subtitle": "Sauce",
+        "instructions": "Mix all **sauce ingredients except green pepper in a skillet. Cook stirring until mixture until mixture boils and thickens. Stir in green pepper and meatballs. Cook until warm."
       }
     ]
   },
@@ -96,7 +153,7 @@
     "type": "Dessert",
     "title": "Cinnamon Doughnut Holes",
     "introduction": "A Mary Kay recipe.",
-    "imageUrl": "http://images.summitmedia-digital.com/yummyph/images/feb_2016/cinnamon-doughnut-holes645.jpg",
+    "imageUrl": "https://easyfood.ie/wp-content/uploads/2018/12/Cinnamon-doughnut-holes.jpg",
     "prepTime": 30,
     "totalTime": 60,
     "servings": 48,
@@ -253,16 +310,19 @@
     "servings": 6,
     "ingredients": [
       {
-        "title": "Onion"
+        "title": "Onion",
+        "additionalNotes": "chopped"
       },
       {
         "title": "Dried Cranberries"
       },
       {
-        "title": "Pecans or Walnuts"
+        "title": "Pecans or Walnuts",
+        "additionalNotes": "Chopped"
       },
       {
-        "title": "Cooked Shredded Chicken"
+        "title": "Chicken",
+        "additionalNotes": "Cooked & Shredded"
       },
       {
         "title": "Salt"
