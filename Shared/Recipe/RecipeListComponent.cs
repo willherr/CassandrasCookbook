@@ -22,6 +22,7 @@ namespace CassandrasCookbook.Shared.Recipe
                 _ => AllRecipes
             }).OrderBy(x => x.Title);
         }
+        protected string NewRecipeRoute => $"/recipe/new/{true}/{(int)Type}";
 
         public static IEnumerable<RecipeItem> AllRecipes { get; set; } = new List<RecipeItem>();
         public static IEnumerable<RecipeItem> AppetizerRecipes => AllRecipes.Where(x => x.Type == Type.Appetizer);

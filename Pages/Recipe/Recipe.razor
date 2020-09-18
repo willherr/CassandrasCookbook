@@ -1,25 +1,23 @@
 ﻿@page "/recipe/{title}"
-@page "/recipe/{title}/{isEditMode:bool}"
+@page "/recipe/{title}/{isEditMode:bool}/{type:int}"
 @inject IJSRuntime JSRuntime
 @inject NavigationManager NavigationManager
 @inject Task<IEnumerable<RecipeItem>> _getRecipes
 
 @if (Item != null)
 {
+    var stepNumber = 0;
     <div class="mat-layout-grid mat-fab-content">
         <div class="mat-layout-grid-inner">
             <div class="mat-layout-grid-cell">
-                <RecipeOverviewComponent Item="Item"></RecipeOverviewComponent>
+                <RecipeOverviewComponent Item="Item" IsEditMode="IsEditMode"></RecipeOverviewComponent>
             </div>
 
-            @{
-                var number = 0;
-                @foreach (var step in Item.Steps)
-                {
-                    <div class="mat-layout-grid-cell">
-                        <RecipeStep Step="step" StepNumber="@(++number)"></RecipeStep>
-                    </div>
-                }
+            @foreach (var step in Item.Steps)
+            {
+                <div class="mat-layout-grid-cell">
+                    <RecipeStep Step="step" StepNumber="@(++stepNumber)" IsEditMode="IsEditMode"></RecipeStep>
+                </div>
             }
         </div>
     </div>
@@ -40,26 +38,36 @@
     public string Title { get; set; }
     [Parameter]
     public bool IsEditMode { get; set; }
+    [Parameter]
+    public CassandrasCookbook.Shared.Recipe.Type Type { get; set; }
+    public bool IsNew { get; set; }
     private RecipeItem Item { get; set; }
     private bool snackBarIsOpen { get; set; }
 
     protected override void OnInitialized()
     {
         base.OnInitialized();
-        if (Layout == null) return;
-        Layout.Reset();
+        if (Layout != null)
+        {
+            Layout.Reset();
+        }
     }
 
     protected override async Task OnInitializedAsync()
     {
+        IsNew = Title == "new";
         RecipeListComponent.AllRecipes = await _getRecipes;
-        Item = RecipeListComponent.AllRecipes.FirstOrDefault(x => x.Title == Title);
+
+        if (!IsNew)
+        {
+            Item = RecipeListComponent.AllRecipes.FirstOrDefault(x => x.Title == Title);
+        }
 
         if (Item == null)
         {
             if (IsEditMode)
             {
-
+                Item = new RecipeItem();
             }
             else
             {

@@ -2,6 +2,7 @@
 @layout PageLayout
 @inherits RecipeListComponent
 @inject Task<IEnumerable<RecipeItem>> _getRecipes
+@inject NavigationManager NavigationManager
 
 <div class="mat-layout-grid">
     <div class="mat-layout-grid-inner">
@@ -14,6 +15,10 @@
     </div>
 </div>
 
+
+<MatTooltip Tooltip="@($"Add {Type} Recipe")" TargetId="fab" Position="MatTooltipPosition.Top">
+    <MatFAB Id="fab" Class="mat-fab" Icon="@MatIconNames.Add" OnClick='() => NavigationManager.NavigateTo(NewRecipeRoute)'></MatFAB>
+</MatTooltip>
 
 @code {
     [CascadingParameter(Name = "PageLayout")] PageLayout Layout { get; set; }
