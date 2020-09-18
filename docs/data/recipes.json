@@ -35,7 +35,61 @@
   {
     "type": "Breakfast",
     "title": "Ultimate Pancakes",
-    "imageUrl": "https://i.ytimg.com/vi/7ebZWviUfUA/maxresdefault.jpg"
+    "introduction": "Back of the Bisquick box! * = Required for \"Ultimate Pancakes\".",
+    "imageUrl": "https://i.ytimg.com/vi/7ebZWviUfUA/maxresdefault.jpg",
+    "prepTime": 3,
+    "totalTime": 10,
+    "servings": 4,
+    "ingredients": [
+      {
+        "title": "Bisquick Mix",
+        "amount": 2,
+        "unitOfMeasure": "cups"
+      },
+      {
+        "title": "Milk",
+        "amount": 1,
+        "unitOfMeasure": "cup"
+      },
+      {
+        "title": "Eggs",
+        "amount": 2
+      },
+      {
+        "title": "*Sugar",
+        "amount": 3,
+        "unitOfMeasure": "tbsp"
+      },
+      {
+        "title": "Baking Powder",
+        "amount": 2,
+        "unitOfMeasure": "tsp"
+      },
+      {
+        "title": "Vegetable Oil",
+        "amount": 2,
+        "unitOfMeasure": "tbsp"
+      },
+      {
+        "title": "Vanilla Extract",
+        "amount": 1,
+        "unitOfMeasure": "tsp"
+      }
+    ],
+    "steps": [
+      {
+        "subtitle": "STIR",
+        "instructions": "Stir ingredients until blended."
+      },
+      {
+        "subtitle": "POUR",
+        "instructions": "Pour slightly less than 1/4 cupfuls onto hot, greased griddle."
+      },
+      {
+        "subtitle": "COOK",
+        "instructions": "Cook until edges are dry. Turn; cook until golden."
+      }
+    ]
   },
 
   {
