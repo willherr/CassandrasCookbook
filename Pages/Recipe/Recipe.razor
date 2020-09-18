@@ -1,10 +1,12 @@
 ﻿@page "/recipe/{title}"
+@page "/recipe/{title}/{isEditMode:bool}"
+@inject IJSRuntime JSRuntime
 @inject NavigationManager NavigationManager
 @inject Task<IEnumerable<RecipeItem>> _getRecipes
 
 @if (Item != null)
 {
-    <div class="mat-layout-grid">
+    <div class="mat-layout-grid mat-fab-content">
         <div class="mat-layout-grid-inner">
             <div class="mat-layout-grid-cell">
                 <RecipeOverviewComponent Item="Item"></RecipeOverviewComponent>
@@ -21,14 +23,25 @@
             }
         </div>
     </div>
+
+    <MatFAB Class="mat-fab" Icon="@(IsEditMode ? MatIconNames.Save : MatIconNames.Edit)" OnClick="OnClickFAB"></MatFAB>
+
+    <MatSnackbar @bind-IsOpen="@snackBarIsOpen" Leading="true">
+        <MatSnackbarContent>Copied edits to clipboard. Send them to Will.</MatSnackbarContent>
+        <MatSnackbarActions>
+            <MatButton OnClick="_ => snackBarIsOpen = false" Raised="true">Close</MatButton>
+        </MatSnackbarActions>
+    </MatSnackbar>
 }
 
 @code {
     [CascadingParameter(Name = "PageLayout")] PageLayout Layout { get; set; }
     [Parameter]
     public string Title { get; set; }
-
+    [Parameter]
+    public bool IsEditMode { get; set; }
     private RecipeItem Item { get; set; }
+    private bool snackBarIsOpen { get; set; }
 
     protected override void OnInitialized()
     {
@@ -44,8 +57,22 @@
 
         if (Item == null)
         {
-            NavigationManager.NavigateTo("404");
+            if (IsEditMode)
+            {
+
+            }
+            else
+            {
+                NavigationManager.NavigateTo("404");
+            }
         }
         await base.OnInitializedAsync();
+    }
+
+    private async Task OnClickFAB()
+    {
+        await JSRuntime.InvokeVoidAsync("Utility.copyText", System.Text.Json.JsonSerializer.Serialize(Item));
+        IsEditMode = !IsEditMode;
+        snackBarIsOpen = !IsEditMode;
     }
 }

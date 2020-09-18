@@ -291,3 +291,13 @@ html, body {
 :focus {
     outline: none !important;
 }
+
+.mat-fab {
+    position: fixed;
+    bottom: 1rem;
+    right: 1rem;
+}
+
+.mat-fab-content {
+    margin-bottom: 3rem !important;
+}
