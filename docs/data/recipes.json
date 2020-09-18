@@ -35,7 +35,7 @@
   {
     "type": "Breakfast",
     "title": "Ultimate Pancakes",
-    "introduction": "Back of the Bisquick box! * = Required for \"Ultimate Pancakes\".",
+    "introduction": "Back of the Bisquick box! *ingredient = Required for \"Ultimate Pancakes\".",
     "imageUrl": "https://i.ytimg.com/vi/7ebZWviUfUA/maxresdefault.jpg",
     "prepTime": 3,
     "totalTime": 10,
@@ -61,17 +61,17 @@
         "unitOfMeasure": "tbsp"
       },
       {
-        "title": "Baking Powder",
+        "title": "*Baking Powder",
         "amount": 2,
         "unitOfMeasure": "tsp"
       },
       {
-        "title": "Vegetable Oil",
+        "title": "*Vegetable Oil",
         "amount": 2,
         "unitOfMeasure": "tbsp"
       },
       {
-        "title": "Vanilla Extract",
+        "title": "*Vanilla Extract",
         "amount": 1,
         "unitOfMeasure": "tsp"
       }

@@ -25,7 +25,7 @@
       "url": "css\/site.css"
     },
     {
-      "hash": "sha256-7Du5\/xVoj\/OVgKSMp33H8YgdRPrzGenuvHxUpxBYzqA=",
+      "hash": "sha256-2bYpwt+qPkjhRhnCT+su7tTgEIosoh\/Nj\/7nbychWGA=",
       "url": "data\/recipes.json"
     },
     {
