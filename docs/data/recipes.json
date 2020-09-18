@@ -94,15 +94,68 @@
 
   {
     "type": "Dessert",
-    "title": "Frozen Peanut Butter Cup",
-    "imageUrl": "https://i.pinimg.com/originals/4a/51/9f/4a519f7658f35b94446f31add54dcbc7.jpg"
+    "title": "Cinnamon Doughnut Holes",
+    "introduction": "A Mary Kay recipe.",
+    "imageUrl": "http://images.summitmedia-digital.com/yummyph/images/feb_2016/cinnamon-doughnut-holes645.jpg",
+    "prepTime": 30,
+    "totalTime": 60,
+    "servings": 48,
+    "ingredients": [
+      {
+        "title": "Flour",
+        "amount": 1.75,
+        "unitOfMeasure": "cups"
+      },
+      {
+        "title": "Baking Powder",
+        "amount": 1,
+        "unitOfMeasure": "tsp"
+      },
+      {
+        "title": "Cinnamon",
+        "amount": 0.25,
+        "unitOfMeasure": "tsp"
+      },
+      {
+        "title": "Vegetable Oil"
+      },
+      {
+        "title": "Sugar",
+        "amount": 0.5,
+        "unitOfMeasure": "cups"
+      },
+      {
+        "title": "Melted Butter",
+        "amount": 2,
+        "unitOfMeasure": "tbsp"
+      },
+      {
+        "title": "Egg",
+        "amount": 1
+      },
+      {
+        "title": "Buttermilk",
+        "amount": 0.33,
+        "unitOfMeasure": "cups"
+      },
+      {
+        "title": "Salt",
+        "amount": 1,
+        "unitOfMeasure": "pinch"
+      }
+    ],
+    "steps": [
+      {
+        "subtitle": "Prep",
+        "instructions": "Mix dry ingredients (except sugar). Whisk sugar and butter. Now whisk in egg and buttermilk until smooth. Stir in dry ingredients with a spatula to form soft, pliable dough. Cover with plastic and refrigerate at least 30 minutes or overnight."
+      },
+      {
+        "subtitle": "Fry",
+        "instructions": "Heat 1 inch of oil in skillet to 325 degrees. Use spoon to form dough into balls. Drop dough balls into hot oil and fry until golden brown on both sides (about 1-2 minutes on each side). Drain doughnut holes on paper towel. Roll in cinnamon sugar or frosting while still warm."
+      }
+    ]
   },
 
-  {
-    "type": "Dinner",
-    "title": "Meatloaf",
-    "imageUrl": "https://static01.nyt.com/images/2016/03/21/dining/21COOKING_MEATLOAF2/21COOKING_MEATLOAF2-superJumbo.jpg"
-  },
   {
     "type": "Dinner",
     "title": "Caramelized Onion Burgers",
@@ -192,7 +245,39 @@
 
   {
     "type": "Lunch",
-    "title": "Peanut Butter Jellies",
-    "imageUrl": "https://rowaytonmarket.com/wp-content/uploads/2016/10/peanut-butter-jelly.jpg"
+    "title": "Chicken Salad",
+    "imageUrl": "https://2.bp.blogspot.com/-D1jEQVGe2-c/Th50PTF6hkI/AAAAAAAAC4g/Ap3eC0-mERw/s1600/IMG_5113.JPG",
+    "introduction": "With Horseradish Aioli & Carrot Fries. EveryPlate meal.",
+    "prepTime": 15,
+    "totalTime": 15,
+    "servings": 6,
+    "ingredients": [
+      {
+        "title": "Onion"
+      },
+      {
+        "title": "Dried Cranberries"
+      },
+      {
+        "title": "Pecans or Walnuts"
+      },
+      {
+        "title": "Cooked Shredded Chicken"
+      },
+      {
+        "title": "Salt"
+      },
+      {
+        "title": "Mayo"
+      }
+    ],
+    "steps": [
+      {
+        "instructions": "Mix all ingredients together to taste."
+      },
+      {
+        "instructions": "As leftovers, you may need to add more mayo."
+      }
+    ]
   }
 ]
