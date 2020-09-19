@@ -13,8 +13,8 @@ namespace CassandrasCookbook.Shared.Recipe
         public string ImageUrl { get; set; }
         [JsonConverter(typeof(JsonStringEnumConverter))]
         public Type Type { get; set; }
-        public IEnumerable<Step> Steps { get; set; } = new List<Step>();
-        public IEnumerable<Ingredient> Ingredients { get; set; } = new List<Ingredient>();
+        public List<Step> Steps { get; set; } = new List<Step>();
+        public List<Ingredient> Ingredients { get; set; } = new List<Ingredient>();
         public int? PrepTime { get; set; }
         public int? TotalTime { get; set; }
         public int? Servings { get; set; }
