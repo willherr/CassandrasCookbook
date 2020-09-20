@@ -13,12 +13,23 @@ namespace CassandrasCookbook.Shared.Recipe
         public string ImageUrl { get; set; }
         [JsonConverter(typeof(JsonStringEnumConverter))]
         public Type Type { get; set; }
-        public IEnumerable<Step> Steps { get; set; } = new List<Step>();
-        public IEnumerable<Ingredient> Ingredients { get; set; } = new List<Ingredient>();
+        public List<Step> Steps { get; set; } = new List<Step>();
+        public List<Ingredient> Ingredients { get; set; } = new List<Ingredient>();
         public int? PrepTime { get; set; }
         public int? TotalTime { get; set; }
         public int? Servings { get; set; }
 
+        [JsonIgnore]
         public bool HasAdditionalInformation => !string.IsNullOrEmpty(Introduction) || Ingredients.Any();
+        [JsonIgnore]
+        public bool IsValid => 
+            !string.IsNullOrEmpty(Title) 
+            && !string.IsNullOrEmpty(ImageUrl) 
+            && PrepTime.HasValue
+            && TotalTime.HasValue
+            && Servings.HasValue
+            && Type != Type.All
+            && (!Steps.Any() || Steps.All(step => step.IsValid))
+            && (!Ingredients.Any() || Ingredients.All(ingredient => ingredient.IsValid));
     }
 }

@@ -2,32 +2,83 @@
 
 <MatCard Style="@(IsListView ? "cursor: pointer" : "")" @onclick="Navigate">
     <MatCardContent>
-        <MatBody2 Class="pl-1 my-2">
-            <MatHeadline6 Class="m-0">@Item.Title</MatHeadline6>
+        <MatBody2 Class="px-1 my-2">
+            <MatHeadline6 Class="m-0">
+                @if (IsEditMode)
+                {
+                    <MatInputTextComponent Class="w-100" @bind-Value="Item.Title" Label="Title" Required="true"></MatInputTextComponent>
+                }
+                else
+                {
+                    @Item.Title
+                }
+            </MatHeadline6>
         </MatBody2>
+        @if (IsEditMode)
+        {
+            <MatInputTextComponent Class="mx-1" @bind-Value="Item.ImageUrl" Label="Image URL" Required="true"></MatInputTextComponent>
+        }
         <MatCardMedia Wide="true" ImageUrl="@Item.ImageUrl"></MatCardMedia>
         <MatBody2 Class="pl-1 pr-1">
             <div class="d-flex @(!IsListView && Item.HasAdditionalInformation ? "mb-4" : "")">
                 <div style="width: 33%" class="text-center">
                     <div style="text-decoration: underline">Prep Time</div>
-                    <div>@(Item.PrepTime?.ToString() ?? "?") Minutes</div>
+                    <div>
+                        @if (IsEditMode)
+                        {
+                            <MatNumericUpDownField @bind-Value="Item.PrepTime" Required="true"></MatNumericUpDownField>
+                        }
+                        else
+                        {
+                            @(Item.PrepTime?.ToString() ?? "?")
+                        }
+                        Minutes
+                    </div>
                 </div>
                 <div style="width: 34%" class="text-center">
                     <div style="text-decoration: underline">Total Time</div>
-                    <div>@(Item.TotalTime?.ToString() ?? "?") Minutes</div>
+                    <div>
+                        @if (IsEditMode)
+                        {
+                            <MatNumericUpDownField @bind-Value="Item.TotalTime" Required="true"></MatNumericUpDownField>
+                        }
+                        else
+                        {
+                            @(Item.TotalTime?.ToString() ?? "?")
+                        }
+                        Minutes
+                    </div>
                 </div>
                 <div style="width: 33%" class="text-center">
                     <div style="text-decoration: underline">Servings</div>
-                    <div>@(Item.Servings?.ToString() ?? "?")</div>
+                    <div>
+                        @if (IsEditMode)
+                        {
+                            <MatNumericUpDownField @bind-Value="Item.Servings" Required="true"></MatNumericUpDownField>
+                        }
+                        else
+                        {
+                            @(Item.Servings?.ToString() ?? "?")
+                        }
+                    </div>
                 </div>
             </div>
-            @if (!IsListView && Item.HasAdditionalInformation)
+            @if (!IsListView && Item.HasAdditionalInformation || IsEditMode)
             {
-                if (!string.IsNullOrEmpty(Item.Introduction))
+                if (!string.IsNullOrEmpty(Item.Introduction) || IsEditMode)
                 {
-                    <span class="mt-2">@Item.Introduction</span>
+                    <div class="mt-2">
+                        @if (IsEditMode)
+                        {
+                            <MatInputTextComponent Class="w-100" Label="Introduction" @bind-Value="Item.Introduction" TextArea="true"></MatInputTextComponent>
+                        }
+                        else
+                        {
+                            <div class="px-3">@Item.Introduction</div>
+                        }
+                    </div>
                 }
-                if (Item.Ingredients.Any())
+                if (Item.Ingredients.Any() || IsEditMode)
                 {
                     <MatList Class="p-0 mt-2">
                         <MatListItem>
@@ -37,6 +88,12 @@
                             </MatListItemText>
                         </MatListItem>
                         <MatListDivider></MatListDivider>
+                        @if (IsEditMode)
+                        {
+                            <MatListItem Style="height:auto; min-height: 48px">
+                                <MatButton Raised="true" OnClick='_ => AddIngredient = true'>Add Ingredient</MatButton>
+                            </MatListItem>
+                        }
                         @foreach (var ingredient in Item.Ingredients)
                         {
                             var primaryText = ingredient.Title;
@@ -46,7 +103,13 @@
                             }
                             <MatListItem Style="height: auto; min-height: 48px;">
                                 <MatListItemText>
-                                    <MatListItemPrimaryText Style="white-space: normal">@primaryText</MatListItemPrimaryText>
+                                    <MatListItemPrimaryText Style="white-space: normal">
+                                        @if (IsEditMode)
+                                        {
+                                            <MatIconButton Icon="@MatIconNames.Remove" OnClick="_ => Item.Ingredients.Remove(ingredient)"></MatIconButton>
+                                        }
+                                        @primaryText
+                                    </MatListItemPrimaryText>
                                     <MatListItemSecondaryText Style="white-space: normal">@ingredient.AdditionalNotes</MatListItemSecondaryText>
                                 </MatListItemText>
                             </MatListItem>
@@ -58,12 +121,49 @@
     </MatCardContent>
 </MatCard>
 
+<MatDialog @bind-IsOpen="AddIngredient">
+    <MatDialogTitle>Add Ingredient</MatDialogTitle>
+    <MatDialogContent>
+        <div class="mat-layout-grid p-0">
+            <div class="mat-layout-grid-inner">
+                <div class="mat-layout-grid-cell mat-layout-grid-cell-span-12"><MatInputTextComponent Class="w-100" @bind-Value="NewIngredient.Title" Label="Title" Required="true"></MatInputTextComponent></div>
+                <div class="mat-layout-grid-cell mat-layout-grid-cell-span-6"><MatNumericUpDownField Class="w-100" @bind-Value="NewIngredient.Amount" Label="Amount"></MatNumericUpDownField></div>
+                <div class="mat-layout-grid-cell mat-layout-grid-cell-span-6"><MatInputTextComponent Class="w-100" @bind-Value="NewIngredient.UnitOfMeasure" Label="Unit"></MatInputTextComponent></div>
+                <div class="mat-layout-grid-cell mat-layout-grid-cell-span-12"><MatInputTextComponent Class="w-100" @bind-Value="NewIngredient.AdditionalNotes" Label="Notes"></MatInputTextComponent></div>
+            </div>
+        </div>
+        @if (!NewIngredient.IsValid)
+        {
+            <span class="text-danger">You must supply a Title.</span>
+        }
+    </MatDialogContent>
+    <MatDialogActions>
+        <MatButton OnClick="_ => CloseAddIngredient(false)">Nevermind</MatButton>
+        <MatButton OnClick="_ => CloseAddIngredient(true)">Add it!</MatButton>
+    </MatDialogActions>
+</MatDialog>
+
 @code {
     [Parameter]
     public RecipeItem Item { get; set; }
-
+    [Parameter]
+    public bool IsEditMode { get; set; }
     [Parameter]
     public bool IsListView { get; set; }
+
+    protected Ingredient NewIngredient { get; set; } = new Ingredient();
+    private bool addIngredient;
+    protected bool AddIngredient
+    {
+        get => addIngredient;
+        set
+        {
+            if (addIngredient = value)
+            {
+                NewIngredient = new Ingredient();
+            }
+        }
+    }
 
     public void Navigate()
     {
@@ -71,5 +171,20 @@
         {
             NavigationManager.NavigateTo($"recipe/{Item.Title}");
         }
+    }
+
+    private void CloseAddIngredient(bool value)
+    {
+        NewIngredient.SetIsValid();
+        if (value)
+        {
+            if (!NewIngredient.IsValid)
+            {
+                return;
+            }
+            Item.Ingredients.Add(NewIngredient);
+        }
+
+        AddIngredient = false;
     }
 }
