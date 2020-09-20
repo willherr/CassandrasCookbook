@@ -22,7 +22,7 @@ namespace CassandrasCookbook.Shared.Recipe
                 _ => AllRecipes
             }).OrderBy(x => x.Title);
         }
-        protected string NewRecipeRoute => $"/recipe/new/{true}/{(int)Type}";
+        protected string NewRecipeRoute => $"recipe/new/{true}/{(int)Type}";
 
         private static IEnumerable<RecipeItem> allRecipes = new List<RecipeItem>();
         public static IEnumerable<RecipeItem> AllRecipes { get => allRecipes.Concat(NewRecipes); set => allRecipes = value; }

@@ -126,7 +126,7 @@
         if (IsNew)
         {
             RecipeListComponent.NewRecipes.Add(Item);
-            NavigationManager.NavigateTo($"/recipe/{Item.Title}");
+            NavigationManager.NavigateTo($"recipe/{Item.Title}");
             IsNew = false;
         }
     }
