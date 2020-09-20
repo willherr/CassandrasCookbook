@@ -91,9 +91,15 @@
                 if (Item.Ingredients.Any() || IsEditMode)
                 {
                     <MatList Class="p-0 mt-2">
-                        <MatListItem>
-                            <MatListItemText>
-                                <MatListItemPrimaryText><b>Ingredients</b></MatListItemPrimaryText>
+                        <MatListItem Style="height: auto; min-height: 48px;">
+                            <MatListItemText Class="w-100">
+                                <MatListItemPrimaryText Class="w-100">
+                                    <b>Ingredients</b>
+                                    @if (!IsEditMode)
+                                    {
+                                        <MatIconButton Style="right:0;position:absolute;" Icon="@(HideIngredients ? MatIconNames.Visibility_off : MatIconNames.Visibility)" OnClick="_ => HideIngredients = !hideIngredients"></MatIconButton>
+                                    }
+                                </MatListItemPrimaryText>
                                 <MatListItemSecondaryText></MatListItemSecondaryText>
                             </MatListItemText>
                         </MatListItem>
@@ -104,26 +110,27 @@
                                 <MatButton Raised="true" OnClick='_ => AddIngredient = true'>Add Ingredient</MatButton>
                             </MatListItem>
                         }
-                        @foreach (var ingredient in Item.Ingredients)
-                        {
-                            var primaryText = ingredient.Title;
-                            if (ingredient.Amount.HasValue)
+                        @if (!HideIngredients)
+                            foreach (var ingredient in Item.Ingredients)
                             {
-                                primaryText += $": {ingredient.Amount} {ingredient.UnitOfMeasure}";
+                                var primaryText = ingredient.Title;
+                                if (ingredient.Amount.HasValue)
+                                {
+                                    primaryText += $": {ingredient.Amount} {ingredient.UnitOfMeasure}";
+                                }
+                                <MatListItem Style="height: auto; min-height: 48px;">
+                                    <MatListItemText>
+                                        <MatListItemPrimaryText Style="white-space: normal">
+                                            @if (IsEditMode)
+                                            {
+                                                <MatIconButton Icon="@MatIconNames.Remove" OnClick="_ => Item.Ingredients.Remove(ingredient)"></MatIconButton>
+                                            }
+                                            @primaryText
+                                        </MatListItemPrimaryText>
+                                        <MatListItemSecondaryText Style="white-space: normal">@ingredient.AdditionalNotes</MatListItemSecondaryText>
+                                    </MatListItemText>
+                                </MatListItem>
                             }
-                            <MatListItem Style="height: auto; min-height: 48px;">
-                                <MatListItemText>
-                                    <MatListItemPrimaryText Style="white-space: normal">
-                                        @if (IsEditMode)
-                                        {
-                                            <MatIconButton Icon="@MatIconNames.Remove" OnClick="_ => Item.Ingredients.Remove(ingredient)"></MatIconButton>
-                                        }
-                                        @primaryText
-                                    </MatListItemPrimaryText>
-                                    <MatListItemSecondaryText Style="white-space: normal">@ingredient.AdditionalNotes</MatListItemSecondaryText>
-                                </MatListItemText>
-                            </MatListItem>
-                        }
                     </MatList>
                 }
             }
@@ -154,12 +161,12 @@
 </MatDialog>
 
 @code {
-    [Parameter]
-    public RecipeItem Item { get; set; }
-    [Parameter]
-    public bool IsEditMode { get; set; }
-    [Parameter]
-    public bool IsListView { get; set; }
+    [Parameter] public RecipeItem Item { get; set; }
+    [Parameter] public bool IsEditMode { get; set; }
+    [Parameter] public bool IsListView { get; set; }
+
+    private bool hideIngredients;
+    private bool HideIngredients { get => !IsEditMode && hideIngredients; set => hideIngredients = value; }
 
     protected Ingredient NewIngredient { get; set; } = new Ingredient();
     private bool addIngredient;

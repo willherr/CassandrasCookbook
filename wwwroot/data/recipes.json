@@ -394,6 +394,69 @@
     "TotalTime": 30,
     "Servings": 6
   },
+  {
+    "Title": "French Dip",
+    "Introduction": null,
+    "ImageUrl": "https://www.bunsinmyoven.com/wp-content/uploads/2016/03/french-dip-sandwich-400x400.jpg",
+    "Type": "Dinner",
+    "Steps": [
+      {
+        "Subtitle": "Get it cooking",
+        "ImageUrl": null,
+        "Instructions": "Place the roast in a slow cooker. Pour the soup and consomme over the top. Cover and cook on low for 8 hours or high for 4 hours."
+      },
+      {
+        "Subtitle": "Juice reduction",
+        "ImageUrl": null,
+        "Instructions": "Remove 3 cups of the juice from the slow cooker with a measuring cup or ladle and add to a small sauce pan. Turn heat to medium and bring to a boil. Reduce to a hard simmer and let cook until reduced by half, about 10 minutes."
+      },
+      {
+        "Subtitle": "Make it gooey",
+        "ImageUrl": null,
+        "Instructions": "Place the sandwich rolls in a 9x13 pan and spoon meat into each roll. Top each with a slice of provolone cheese. Cover with foil and bake at 350 degrees for 5 minutes or until the cheese is melted."
+      },
+      {
+        "Subtitle": "Serve and eat",
+        "ImageUrl": null,
+        "Instructions": "Serve immediately with the sauce on the side for dipping."
+      }
+    ],
+    "Ingredients": [
+      {
+        "Title": "French Onion Soup",
+        "Amount": 21,
+        "UnitOfMeasure": "ounces",
+        "AdditionalNotes": "(2 cans)"
+      },
+      {
+        "Title": "Beef Consomme",
+        "Amount": 10.5,
+        "UnitOfMeasure": "ounces",
+        "AdditionalNotes": "(1 can)"
+      },
+      {
+        "Title": "Beef Chuck Roast",
+        "Amount": 3.5,
+        "UnitOfMeasure": "pounds",
+        "AdditionalNotes": "3-4 lbs"
+      },
+      {
+        "Title": "Sandwich Rolls",
+        "Amount": 8,
+        "UnitOfMeasure": null,
+        "AdditionalNotes": null
+      },
+      {
+        "Title": "Provolone Cheese",
+        "Amount": 8,
+        "UnitOfMeasure": "Slices",
+        "AdditionalNotes": null
+      }
+    ],
+    "PrepTime": 10,
+    "TotalTime": 240,
+    "Servings": 8
+  },
 
   {
     "type": "Lunch",
