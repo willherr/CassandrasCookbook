@@ -124,8 +124,18 @@
 <MatDialog @bind-IsOpen="AddIngredient">
     <MatDialogTitle>Add Ingredient</MatDialogTitle>
     <MatDialogContent>
-        <p>What's your favorite animal?</p>
-
+        <div class="mat-layout-grid p-0">
+            <div class="mat-layout-grid-inner">
+                <div class="mat-layout-grid-cell mat-layout-grid-cell-span-12"><MatInputTextComponent Class="w-100" @bind-Value="NewIngredient.Title" Label="Title" Required="true"></MatInputTextComponent></div>
+                <div class="mat-layout-grid-cell mat-layout-grid-cell-span-6"><MatNumericUpDownField Class="w-100" @bind-Value="NewIngredient.Amount" Label="Amount"></MatNumericUpDownField></div>
+                <div class="mat-layout-grid-cell mat-layout-grid-cell-span-6"><MatInputTextComponent Class="w-100" @bind-Value="NewIngredient.UnitOfMeasure" Label="Unit"></MatInputTextComponent></div>
+                <div class="mat-layout-grid-cell mat-layout-grid-cell-span-12"><MatInputTextComponent Class="w-100" @bind-Value="NewIngredient.AdditionalNotes" Label="Notes"></MatInputTextComponent></div>
+            </div>
+        </div>
+        @if (!string.IsNullOrEmpty(addIngredientError))
+        {
+            <span class="text-danger">@addIngredientError</span>
+        }
     </MatDialogContent>
     <MatDialogActions>
         <MatButton OnClick="_ => CloseAddIngredient(false)">Nevermind</MatButton>
@@ -135,6 +145,7 @@
 
 @code {
     private bool addIngredient;
+    private string addIngredientError;
     [Parameter]
     public RecipeItem Item { get; set; }
     [Parameter]
@@ -142,7 +153,7 @@
     [Parameter]
     public bool IsListView { get; set; }
 
-    protected Ingredient NewIngredient { get; set; }
+    protected Ingredient NewIngredient { get; set; } = new Ingredient();
     protected bool AddIngredient
     {
         get => addIngredient;
@@ -165,10 +176,18 @@
 
     private void CloseAddIngredient(bool value)
     {
-        AddIngredient = false;
         if (value)
         {
+            // check for errors
+            if (string.IsNullOrEmpty(NewIngredient.Title))
+            {
+                addIngredientError = "You must supply a title.";
+                return;
+            }
             Item.Ingredients.Add(NewIngredient);
         }
+
+        AddIngredient = false;
+        addIngredientError = null;
     }
 }
