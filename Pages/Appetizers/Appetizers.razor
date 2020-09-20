@@ -4,7 +4,7 @@
 @inject NavigationManager NavigationManager
 @inject Task<IEnumerable<RecipeItem>> _getRecipes
 
-<div class="mat-layout-grid">
+<div class="mat-layout-grid mat-fab-content">
     <div class="mat-layout-grid-inner">
         @foreach (var item in GetRecipes())
         {
