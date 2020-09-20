@@ -127,7 +127,7 @@
         <div class="mat-layout-grid p-0">
             <div class="mat-layout-grid-inner">
                 <div class="mat-layout-grid-cell mat-layout-grid-cell-span-12"><MatInputTextComponent Class="w-100" @bind-Value="NewIngredient.Title" Label="Title" Required="true"></MatInputTextComponent></div>
-                <div class="mat-layout-grid-cell mat-layout-grid-cell-span-6"><MatNumericUpDownField Class="w-100" @bind-Value="NewIngredient.Amount" Label="Amount"></MatNumericUpDownField></div>
+                <div class="mat-layout-grid-cell mat-layout-grid-cell-span-6"><MatNumericUpDownField Step="0.01m" DecimalPlaces="2" Class="w-100" @bind-Value="NewIngredient.Amount" Label="Amount"></MatNumericUpDownField></div>
                 <div class="mat-layout-grid-cell mat-layout-grid-cell-span-6"><MatInputTextComponent Class="w-100" @bind-Value="NewIngredient.UnitOfMeasure" Label="Unit"></MatInputTextComponent></div>
                 <div class="mat-layout-grid-cell mat-layout-grid-cell-span-12"><MatInputTextComponent Class="w-100" @bind-Value="NewIngredient.AdditionalNotes" Label="Notes"></MatInputTextComponent></div>
             </div>
