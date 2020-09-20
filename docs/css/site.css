@@ -162,6 +162,11 @@ html, body {
     margin-right: .5rem !important;
 }
 
+.mx-1 {
+    margin-left: .25rem !important;
+    margin-right: .25rem !important;
+}
+
 .mt-2 {
     margin-top: .5rem !important;
 }
@@ -203,17 +208,35 @@ html, body {
     padding-right: .25rem !important;
 }
 
+.px-2 {
+    padding-left: .5rem !important;
+    padding-right: .5rem !important;
+}
+
+.px-3 {
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+}
+
 .pl-1 {
     padding-left: .25rem !important;
 }
 
 .pr-1 {
-    padding-right: .25rem !important; 
+    padding-right: .25rem !important;
+}
+
+.pt-3 {
+    padding-top: 1rem !important;
 }
 
 .py-0 {
     padding-top: 0 !important;
     padding-bottom: 0 !important;
+}
+
+.text-nowrap {
+    white-space: nowrap;
 }
 
 .text-center {
@@ -266,6 +289,10 @@ html, body {
         width: auto !important;
     }
 
+    .w-md-50 {
+        width: 50% !important;
+    }
+
     .w-md-75 {
         width: 75% !important;
     }
@@ -290,4 +317,14 @@ html, body {
 /* MatBlazor Style Overrides */
 :focus {
     outline: none !important;
+}
+
+.mat-fab {
+    position: fixed;
+    bottom: 1rem;
+    right: 1rem;
+}
+
+.mat-fab-content {
+    margin-bottom: 3rem !important;
 }
