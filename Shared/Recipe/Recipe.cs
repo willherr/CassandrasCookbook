@@ -19,6 +19,17 @@ namespace CassandrasCookbook.Shared.Recipe
         public int? TotalTime { get; set; }
         public int? Servings { get; set; }
 
+        [JsonIgnore]
         public bool HasAdditionalInformation => !string.IsNullOrEmpty(Introduction) || Ingredients.Any();
+        [JsonIgnore]
+        public bool IsValid => 
+            !string.IsNullOrEmpty(Title) 
+            && !string.IsNullOrEmpty(ImageUrl) 
+            && PrepTime.HasValue
+            && TotalTime.HasValue
+            && Servings.HasValue
+            && Type != Type.All
+            && (!Steps.Any() || Steps.All(step => step.IsValid))
+            && (!Ingredients.Any() || Ingredients.All(ingredient => ingredient.IsValid));
     }
 }

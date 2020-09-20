@@ -1,31 +1,47 @@
 ﻿@inject NavigationManager NavigationManager
 
-<MatCard>    
+<MatCard>
     <MatCardContent>
-        <MatBody1 Class="pl-1 my-2" Style="display: flex; align-items: center;">
-            <MatHeadline6 Class="m-0">Step @StepNumber&nbsp;</MatHeadline6>
-            @if (!string.IsNullOrEmpty(Step.Subtitle))
+        <MatBody2 Class="pl-1 my-2" Style="display: flex; align-items: center;">
+            @if (IsEditMode)
+            {
+                <MatIconButton Icon="@MatIconNames.Remove" OnClick="OnRemove"></MatIconButton>
+            }
+            <MatHeadline6 Class="m-0 text-nowrap">Step @StepNumber&nbsp;</MatHeadline6>
+            @if (IsEditMode)
+            { 
+                <MatInputTextComponent Class="w-100 mx-1" @bind-Value="Step.Subtitle" Label="Subtitle"></MatInputTextComponent>
+            }
+            else if (!string.IsNullOrEmpty(Step.Subtitle))
             {
                 <MatSubtitle1 Class="m-0">-&nbsp;@Step.Subtitle</MatSubtitle1>
             }
-        </MatBody1>
+        </MatBody2>
+        @if (IsEditMode)
+        {
+            <MatInputTextComponent Class="mx-1" @bind-Value="Step.ImageUrl" Label="Image URL" Required="true"></MatInputTextComponent>
+        }
         @if (!string.IsNullOrEmpty(Step.ImageUrl))
         {
             <MatCardMedia Wide="true" ImageUrl="@Step.ImageUrl"></MatCardMedia>
         }
-        <MatBody1 Class="pl-1 pr-1">
-            @Step.Instructions
+        <MatBody1 Class="px-2">
+            @if (IsEditMode)
+            {
+                <MatInputTextComponent Class="w-100" @bind-Value="Step.Instructions" Label="Instructions" TextArea="true" Required="true"></MatInputTextComponent>
+            }
+            else
+            {
+                @Step.Instructions
+            }
         </MatBody1>
     </MatCardContent>
 </MatCard>
 
 @code {
-    [Parameter]
-    public Step Step { get; set; }
-
-    [Parameter]
-    public int StepNumber { get; set; }
-
-    [Parameter]
-    public bool IsEditMode { get; set; }
+    [Parameter] public Step Step { get; set; }
+    [Parameter] public bool IsEditMode { get; set; }
+    [Parameter] public RecipeItem Recipe { get; set; }
+    [Parameter] public Action OnRemove { get; set; }
+    public int StepNumber => Recipe.Steps.IndexOf(Step) + 1;
 }

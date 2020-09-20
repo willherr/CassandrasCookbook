@@ -2,7 +2,7 @@
 
 <MatCard Style="@(IsListView ? "cursor: pointer" : "")" @onclick="Navigate">
     <MatCardContent>
-        <MatBody2 Class="pl-1 my-2">
+        <MatBody2 Class="px-1 my-2">
             <MatHeadline6 Class="m-0">
                 @if (IsEditMode)
                 {
@@ -16,7 +16,7 @@
         </MatBody2>
         @if (IsEditMode)
         {
-            <MatInputTextComponent @bind-Value="Item.ImageUrl" Label="Image URL" Required="true"></MatInputTextComponent>
+            <MatInputTextComponent Class="mx-1" @bind-Value="Item.ImageUrl" Label="Image URL" Required="true"></MatInputTextComponent>
         }
         <MatCardMedia Wide="true" ImageUrl="@Item.ImageUrl"></MatCardMedia>
         <MatBody2 Class="pl-1 pr-1">
@@ -67,16 +67,16 @@
             {
                 if (!string.IsNullOrEmpty(Item.Introduction) || IsEditMode)
                 {
-                    <span class="mt-2">
+                    <div class="mt-2">
                         @if (IsEditMode)
                         {
                             <MatInputTextComponent Class="w-100" Label="Introduction" @bind-Value="Item.Introduction" TextArea="true"></MatInputTextComponent>
                         }
                         else
                         {
-                            @Item.Introduction
+                            <div class="px-3">@Item.Introduction</div>
                         }
-                    </span>
+                    </div>
                 }
                 if (Item.Ingredients.Any() || IsEditMode)
                 {
@@ -132,9 +132,9 @@
                 <div class="mat-layout-grid-cell mat-layout-grid-cell-span-12"><MatInputTextComponent Class="w-100" @bind-Value="NewIngredient.AdditionalNotes" Label="Notes"></MatInputTextComponent></div>
             </div>
         </div>
-        @if (!string.IsNullOrEmpty(addIngredientError))
+        @if (!NewIngredient.IsValid)
         {
-            <span class="text-danger">@addIngredientError</span>
+            <span class="text-danger">You must supply a Title.</span>
         }
     </MatDialogContent>
     <MatDialogActions>
@@ -144,8 +144,6 @@
 </MatDialog>
 
 @code {
-    private bool addIngredient;
-    private string addIngredientError;
     [Parameter]
     public RecipeItem Item { get; set; }
     [Parameter]
@@ -154,6 +152,7 @@
     public bool IsListView { get; set; }
 
     protected Ingredient NewIngredient { get; set; } = new Ingredient();
+    private bool addIngredient;
     protected bool AddIngredient
     {
         get => addIngredient;
@@ -176,18 +175,16 @@
 
     private void CloseAddIngredient(bool value)
     {
+        NewIngredient.SetIsValid();
         if (value)
         {
-            // check for errors
-            if (string.IsNullOrEmpty(NewIngredient.Title))
+            if (!NewIngredient.IsValid)
             {
-                addIngredientError = "You must supply a title.";
                 return;
             }
             Item.Ingredients.Add(NewIngredient);
         }
 
         AddIngredient = false;
-        addIngredientError = null;
     }
 }

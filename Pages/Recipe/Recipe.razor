@@ -3,10 +3,21 @@
 @inject IJSRuntime JSRuntime
 @inject NavigationManager NavigationManager
 @inject Task<IEnumerable<RecipeItem>> _getRecipes
+@inject HttpClient HttpClient
 
 @if (Item != null)
 {
-    var stepNumber = 0;
+    @if (IsEditMode)
+    {
+        <div class="px-3 pt-3">
+            @if (HasError)
+            {
+                <div class="text-danger mb-2">All recipes must have a title, prep time, total time, servings, and an intro image URL. Ingredients must have titles. Steps must have instructions.</div>
+            }
+            <MatButton Raised="true" OnClick="_ => NewStep = new Step()">Add Step</MatButton>
+        </div>
+    }
+
     <div class="mat-layout-grid mat-fab-content">
         <div class="mat-layout-grid-inner">
             <div class="mat-layout-grid-cell">
@@ -16,7 +27,7 @@
             @foreach (var step in Item.Steps)
             {
                 <div class="mat-layout-grid-cell">
-                    <RecipeStep Step="step" StepNumber="@(++stepNumber)" IsEditMode="IsEditMode"></RecipeStep>
+                    <RecipeStep Step="step" IsEditMode="IsEditMode" Recipe="Item" OnRemove="() => { Item.Steps.Remove(step); StateHasChanged(); }"></RecipeStep>
                 </div>
             }
         </div>
@@ -24,25 +35,53 @@
 
     <MatFAB Class="mat-fab" Icon="@(IsEditMode ? MatIconNames.Save : MatIconNames.Edit)" OnClick="OnClickFAB"></MatFAB>
 
-    <MatSnackbar @bind-IsOpen="@snackBarIsOpen" Leading="true">
-        <MatSnackbarContent>Copied edits to clipboard. Send them to Will.</MatSnackbarContent>
-        <MatSnackbarActions>
-            <MatButton OnClick="_ => snackBarIsOpen = false" Raised="true">Close</MatButton>
-        </MatSnackbarActions>
-    </MatSnackbar>
+    <MatDialog @bind-IsOpen="snackBarIsOpen">
+        <MatDialogContent>Copied edits to clipboard. Send them to Will.</MatDialogContent>
+        <MatDialogActions>
+            <MatButton OnClick="CloseRecipeModal" Raised="true">Close</MatButton>
+        </MatDialogActions>
+    </MatDialog>
+
+    @if (NewStep != null)
+    {
+        <MatDialog IsOpen="true">
+            <MatDialogTitle>Add Step</MatDialogTitle>
+            <MatDialogContent>
+                <div class="mat-layout-grid p-0">
+                    <div class="mat-layout-grid-inner">
+                        <div class="mat-layout-grid-cell mat-layout-grid-cell-span-12"><MatInputTextComponent Class="w-100" @bind-Value="NewStep.Subtitle" Label="Subtitle"></MatInputTextComponent></div>
+                        <div class="mat-layout-grid-cell mat-layout-grid-cell-span-12"><MatInputTextComponent Class="w-100" @bind-Value="NewStep.ImageUrl" Label="Image URL"></MatInputTextComponent></div>
+                        @if (!string.IsNullOrEmpty(NewStep.ImageUrl))
+                        {
+                            <div class="mat-layout-grid-cell mat-layout-grid-cell-span-12"><img class="w-100" src="@NewStep.ImageUrl" alt="Invalid Image" /></div>
+                        }
+                        <div class="mat-layout-grid-cell mat-layout-grid-cell-span-12"><MatInputTextComponent Class="w-100" @bind-Value="NewStep.Instructions" Label="Instructions" Required="true" TextArea="true"></MatInputTextComponent></div>
+
+                    </div>
+                </div>
+                @if (!NewStep.IsValid)
+                {
+                    <span class="text-danger">Instructions are required for steps.</span>
+                }
+            </MatDialogContent>
+            <MatDialogActions>
+                <MatButton OnClick="_ => CloseAddStep(false)">Nevermind</MatButton>
+                <MatButton OnClick="_ => CloseAddStep(true)">Add it!</MatButton>
+            </MatDialogActions>
+        </MatDialog>
+    }
 }
 
 @code {
     [CascadingParameter(Name = "PageLayout")] PageLayout Layout { get; set; }
-    [Parameter]
-    public string Title { get; set; }
-    [Parameter]
-    public bool IsEditMode { get; set; }
-    [Parameter]
-    public CassandrasCookbook.Shared.Recipe.Type Type { get; set; }
+    [Parameter] public string Title { get; set; }
+    [Parameter] public bool IsEditMode { get; set; }
+    [Parameter] public CassandrasCookbook.Shared.Recipe.Type Type { get; set; }
     public bool IsNew { get; set; }
     private RecipeItem Item { get; set; }
     private bool snackBarIsOpen { get; set; }
+    private bool HasError { get; set; }
+    private Step NewStep { get; set; }
 
     protected override void OnInitialized()
     {
@@ -61,26 +100,80 @@
         if (!IsNew)
         {
             Item = RecipeListComponent.AllRecipes.FirstOrDefault(x => x.Title == Title);
-        }
-
-        if (Item == null)
-        {
-            if (IsEditMode)
-            {
-                Item = new RecipeItem();
-            }
-            else
+            if (Item == null)
             {
                 NavigationManager.NavigateTo("404");
             }
         }
+        else
+        {
+            Item = new RecipeItem { Type = Type };
+        }
+
         await base.OnInitializedAsync();
     }
 
     private async Task OnClickFAB()
     {
+        if (HasError = IsEditMode && (!Item.IsValid || !await TestImages()))
+        {
+            return;
+        }
+
         await JSRuntime.InvokeVoidAsync("Utility.copyText", System.Text.Json.JsonSerializer.Serialize(Item));
         IsEditMode = !IsEditMode;
         snackBarIsOpen = !IsEditMode;
+        if (IsNew)
+        {
+            RecipeListComponent.NewRecipes.Add(Item);
+            NavigationManager.NavigateTo($"/recipe/{Item.Title}");
+            IsNew = false;
+        }
+    }
+
+    private async Task<bool> TestImages()
+    {
+        return (await Task.WhenAll(
+            Item.Steps
+                .Select(step => TestImage(step.ImageUrl))
+                .Append(TestImage(Item.ImageUrl))
+            )).All(result => result);
+
+        async Task<bool> TestImage(string url)
+        {
+            if (!string.IsNullOrEmpty(url))
+            {
+                try
+                {
+                    (await HttpClient.GetAsync(Item.ImageUrl, HttpCompletionOption.ResponseHeadersRead)).EnsureSuccessStatusCode();
+                }
+                catch (Exception)
+                {
+                    return false;
+                }
+            }
+
+            return true;
+        }
+    }
+
+    private void CloseAddStep(bool value)
+    {
+        NewStep.SetIsValid();
+        if (value)
+        {
+            if (!NewStep.IsValid)
+            {
+                return;
+            }
+            Item.Steps.Add(NewStep);
+        }
+
+        NewStep = null;
+    }
+
+    private void CloseRecipeModal()
+    {
+        snackBarIsOpen = false;
     }
 }
