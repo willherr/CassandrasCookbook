@@ -63,7 +63,7 @@
                     </div>
                 </div>
             </div>
-            @if (!IsListView && Item.HasAdditionalInformation)
+            @if (!IsListView && Item.HasAdditionalInformation || IsEditMode)
             {
                 if (!string.IsNullOrEmpty(Item.Introduction) || IsEditMode)
                 {
