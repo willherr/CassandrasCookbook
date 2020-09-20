@@ -299,6 +299,101 @@
       }
     ]
   },
+  {
+    "Title": "Super Sloppy Joes",
+    "Introduction": "A Yvonne recipe.",
+    "ImageUrl": "https://www.rachaelrayshow.com/sites/default/files/styles/1100x620/public/images/2017-02/7357b0fb2ec0541b99592b5612f87b92.jpg?itok=fLoEVb_M",
+    "Type": "Dinner",
+    "Steps": [
+      {
+        "Subtitle": "Brown meat",
+        "ImageUrl": null,
+        "Instructions": "Cook meat, onion, and green peppers until meat is browned. Drain."
+      },
+      {
+        "Subtitle": "Simmer",
+        "ImageUrl": null,
+        "Instructions": "Add remaining ingredients, mix well. Simmer uncovered for 35-40 minutes. Crockpot meal possible."
+      }
+    ],
+    "Ingredients": [
+      {
+        "Title": "Ground Beef",
+        "Amount": 2,
+        "UnitOfMeasure": "lbs",
+        "AdditionalNotes": null
+      },
+      {
+        "Title": "Onion",
+        "Amount": 0.5,
+        "UnitOfMeasure": "cups",
+        "AdditionalNotes": "Chopped"
+      },
+      {
+        "Title": "Green Pepper",
+        "Amount": 1,
+        "UnitOfMeasure": null,
+        "AdditionalNotes": "Chopped"
+      },
+      {
+        "Title": "Ketchup",
+        "Amount": 0.25,
+        "UnitOfMeasure": "cups",
+        "AdditionalNotes": null
+      },
+      {
+        "Title": "Brown Sugar",
+        "Amount": 2,
+        "UnitOfMeasure": "tbsp",
+        "AdditionalNotes": null
+      },
+      {
+        "Title": "Crushed Tomatoes",
+        "Amount": 1.66,
+        "UnitOfMeasure": "cups",
+        "AdditionalNotes": null
+      },
+      {
+        "Title": "Vinegar",
+        "Amount": 1,
+        "UnitOfMeasure": "tbsp",
+        "AdditionalNotes": null
+      },
+      {
+        "Title": "Worcestershire",
+        "Amount": 1,
+        "UnitOfMeasure": "tbsp",
+        "AdditionalNotes": null
+      },
+      {
+        "Title": "BBQ Sauce",
+        "Amount": 1,
+        "UnitOfMeasure": "tbsp",
+        "AdditionalNotes": null
+      },
+      {
+        "Title": "Garlic",
+        "Amount": 1,
+        "UnitOfMeasure": "clove",
+        "AdditionalNotes": "Minced"
+      },
+      {
+        "Title": "Ground Mustard",
+        "Amount": 0.25,
+        "UnitOfMeasure": "tsp",
+        "AdditionalNotes": null
+      },
+      {
+        "Title": "Paprika",
+        "Amount": 0.25,
+        "UnitOfMeasure": "tsp",
+        "AdditionalNotes": null
+      }
+    ],
+    "PrepTime": 15,
+    "TotalTime": 30,
+    "Servings": 6
+  },
 
   {
     "type": "Lunch",

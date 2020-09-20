@@ -115,7 +115,7 @@
 
     private async Task OnClickFAB()
     {
-        if (HasError = IsEditMode && (!Item.IsValid /*|| !await TestImages()*/))
+        if (HasError = IsEditMode && (!Item.IsValid /*|| !await TestImages() - TODO: wasn't working before... needs testing */))
         {
             return;
         }
