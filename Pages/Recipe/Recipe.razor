@@ -115,12 +115,13 @@
 
     private async Task OnClickFAB()
     {
-        if (HasError = IsEditMode && (!Item.IsValid || !await TestImages()))
+        if (HasError = IsEditMode && (!Item.IsValid /*|| !await TestImages()*/))
         {
             return;
         }
 
         await JSRuntime.InvokeVoidAsync("Utility.copyText", System.Text.Json.JsonSerializer.Serialize(Item));
+
         IsEditMode = !IsEditMode;
         snackBarIsOpen = !IsEditMode;
         if (IsNew)
