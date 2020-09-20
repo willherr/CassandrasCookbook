@@ -74,7 +74,17 @@
                         }
                         else
                         {
-                            <div class="px-3">@Item.Introduction</div>
+                            var lines = Item.Introduction.Split("\n");
+                            <div class="px-3">
+                                @for (var i = 0; i < lines.Length; i++)
+                                {
+                                    if (i > 0)
+                                    {
+                                        <br />
+                                    }
+                                    @lines[i]
+                                }
+                            </div>
                         }
                     </div>
                 }
