@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.NetworkInformation;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
@@ -20,10 +21,13 @@ namespace CassandrasCookbook.Shared.Recipe
         public int? Servings { get; set; }
 
         [JsonIgnore]
-        public string PrepTimeAsString => TimeToString(PrepTime);
+        public int? PrepTimeMinutes => PrepTime % 60 > 0 ? PrepTime % 60 : null;
         [JsonIgnore]
-        public string TotalTimeAsString => TimeToString(TotalTime);
-
+        public int? PrepTimeHours => PrepTime / 60 > 0 ? PrepTime / 60 : null;
+        [JsonIgnore]
+        public int? TotalTimeMinutes => TotalTime % 60 > 0 ? TotalTime % 60 : null;
+        [JsonIgnore]
+        public int? TotalTimeHours => TotalTime / 60 > 0 ? TotalTime / 60 : null;
         [JsonIgnore]
         public bool HasAdditionalInformation => !string.IsNullOrEmpty(Introduction) || Ingredients.Any();
         [JsonIgnore]
@@ -36,27 +40,5 @@ namespace CassandrasCookbook.Shared.Recipe
             && Type != Type.All
             && (!Steps.Any() || Steps.All(step => step.IsValid))
             && (!Ingredients.Any() || Ingredients.All(ingredient => ingredient.IsValid));
-
-        private string TimeToString(int? minutes)
-        {
-            if (!minutes.HasValue)
-            {
-                return "?";
-            }
-            var hours = minutes.Value / 60;
-            minutes = minutes % 60;
-
-            var result = string.Empty;
-            if (hours  > 0)
-            {
-                result += $"{hours}h ";
-            }
-            if (minutes > 0)
-            {
-                result += $"{minutes}m ";
-            }
-
-            return result.Trim();
-        }
     }
 }

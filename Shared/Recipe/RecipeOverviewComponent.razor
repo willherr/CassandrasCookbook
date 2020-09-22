@@ -31,7 +31,14 @@
                         }
                         else
                         {
-                            @Item.PrepTimeAsString
+                            if (Item.PrepTimeHours.HasValue)
+                            {
+                                <span>@Item.PrepTimeHours&nbsp;Hour@(Item.PrepTimeHours == 1 ? "" : "s")</span>
+                            }
+                            if (Item.PrepTimeMinutes.HasValue)
+                            {
+                                <span>@Item.PrepTimeMinutes&nbsp;Minute@(Item.PrepTimeMinutes == 1 ? "" : "s")</span>
+                            }
                         }
                     </div>
                 </div>
@@ -45,7 +52,14 @@
                         }
                         else
                         {
-                            @Item.TotalTimeAsString
+                            if (Item.TotalTimeHours.HasValue)
+                            {
+                                <span>@Item.TotalTimeHours&nbsp;Hour@(Item.TotalTimeHours == 1 ? "" : "s")</span>
+                            }
+                            if (Item.TotalTimeMinutes.HasValue)
+                            {
+                                <span>@Item.TotalTimeMinutes&nbsp;Minute@(Item.TotalTimeMinutes == 1 ? "" : "s")</span>
+                            }
                         }
                     </div>
                 </div>
