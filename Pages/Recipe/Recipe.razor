@@ -33,12 +33,13 @@
         </div>
     </div>
 
-    <MatFAB Class="mat-fab" Icon="@(IsEditMode ? MatIconNames.Save : MatIconNames.Edit)" OnClick="OnClickFAB"></MatFAB>
+    <MatFAB Class="mat-fab" Icon="@(IsEditMode ? MatIconNames.Save : MatIconNames.Share)" OnClick="OnClickFAB"></MatFAB>
 
     <MatDialog @bind-IsOpen="SavedEditsOpen">
-        <MatDialogContent>Copied edits to clipboard. Send them to Will.</MatDialogContent>
+        <MatDialogContent>Either copy or share your recipe with Will to have him update Cassandra's Cookbook! Thank you!</MatDialogContent>
         <MatDialogActions>
-            <MatButton OnClick="CloseRecipeModal" Raised="true">Close</MatButton>
+            <MatButton OnClick="_ => CloseRecipeModal(true)" Raised="true">Copy</MatButton>
+            <MatButton OnClick="_ => CloseRecipeModal(false)" Raised="true">Share</MatButton>
         </MatDialogActions>
     </MatDialog>
 
@@ -89,29 +90,26 @@
         if (Layout != null)
         {
             Layout.Reset();
+            Layout.Layout.Title = Title;
         }
     }
 
     protected override async Task OnInitializedAsync()
     {
-        IsNew = Title == "new";
+        await base.OnInitializedAsync();
         RecipeListComponent.AllRecipes = await _getRecipes;
 
-        if (!IsNew)
-        {
-            Item = RecipeListComponent.AllRecipes.FirstOrDefault(x => x.Title == Title);
-            if (Item == null)
-            {
-                NavigationManager.NavigateTo("404");
-            }
-            Layout.Layout.Title = Item.Title;
-        }
-        else
+        if (IsNew = Title == "new")
         {
             Item = new RecipeItem { Type = Type };
         }
-
-        await base.OnInitializedAsync();
+        else
+        {
+            if ((Item = RecipeListComponent.AllRecipes.FirstOrDefault(x => x.Title == Title)) == null)
+            {
+                NavigationManager.NavigateTo("404");
+            }
+        }
     }
 
     private async Task OnClickFAB()
@@ -121,17 +119,27 @@
             return;
         }
 
-        await JSRuntime.InvokeVoidAsync("Utility.copyText", System.Text.Json.JsonSerializer.Serialize(Item));
-
-        IsEditMode = !IsEditMode;
-        SavedEditsOpen = !IsEditMode;
-        if (IsNew)
+        if (IsEditMode)
         {
-            RecipeListComponent.NewRecipes.Add(Item);
-            NavigationManager.NavigateTo($"recipe/{Item.Title}");
-            IsNew = false;
+            IsEditMode = false;
+            SavedEditsOpen = true;
+            if (IsNew)
+            {
+                RecipeListComponent.NewRecipes.Add(Item);
+                NavigationManager.NavigateTo($"recipe/{Item.Title}");
+            }
         }
-        Layout.Layout.Title = Item.Title;
+        else
+        {
+            if (IsNew)
+            {
+                SavedEditsOpen = true;
+            }
+            else
+            {
+                await JSRuntime.InvokeVoidAsync("Utility.share", Item.Title, $"Check out the recipe {Item.Title} on Cassandra's Cookbook!");
+            }
+        }
     }
 
     private async Task<bool> TestImages()
@@ -175,8 +183,17 @@
         NewStep = null;
     }
 
-    private void CloseRecipeModal()
+    private async Task CloseRecipeModal(bool isCopy)
     {
+        var itemJson = System.Text.Json.JsonSerializer.Serialize(Item);
+        if (isCopy)
+        {
+            await JSRuntime.InvokeVoidAsync("Utility.copyText", itemJson);
+        }
+        else
+        {
+            await JSRuntime.InvokeVoidAsync("Utility.share", $"New Recipe - {Item.Title}", itemJson);
+        }
         SavedEditsOpen = false;
     }
 }
