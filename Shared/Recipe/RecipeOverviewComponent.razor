@@ -22,39 +22,41 @@
         <MatBody2 Class="pl-1 pr-1">
             <div class="d-flex @(!IsListView && Item.HasAdditionalInformation ? "mb-4" : "")">
                 <div style="width: 33%" class="text-center">
-                    <div style="text-decoration: underline">Prep Time</div>
+                    <div style="text-decoration: underline">@(IsEditMode ? "*" : "")Prep Time</div>
                     <div>
                         @if (IsEditMode)
                         {
                             <MatNumericUpDownField @bind-Value="Item.PrepTime" Required="true"></MatNumericUpDownField>
+                            <text>Minutes</text>
                         }
                         else
                         {
-                            @(Item.PrepTime?.ToString() ?? "?")
+                            @Item.PrepTimeAsString
                         }
-                        Minutes
                     </div>
                 </div>
                 <div style="width: 34%" class="text-center">
-                    <div style="text-decoration: underline">Total Time</div>
+                    <div style="text-decoration: underline">@(IsEditMode ? "*" : "")Total Time</div>
                     <div>
                         @if (IsEditMode)
                         {
                             <MatNumericUpDownField @bind-Value="Item.TotalTime" Required="true"></MatNumericUpDownField>
+                            <text>Minutes</text>
                         }
                         else
                         {
-                            @(Item.TotalTime?.ToString() ?? "?")
+                            @Item.TotalTimeAsString
                         }
                         Minutes
                     </div>
                 </div>
                 <div style="width: 33%" class="text-center">
-                    <div style="text-decoration: underline">Servings</div>
+                    <div style="text-decoration: underline">@(IsEditMode ? "*" : "")Servings</div>
                     <div>
                         @if (IsEditMode)
                         {
                             <MatNumericUpDownField @bind-Value="Item.Servings" Required="true"></MatNumericUpDownField>
+                            <text>Minutes</text>
                         }
                         else
                         {

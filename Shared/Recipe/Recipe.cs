@@ -20,6 +20,11 @@ namespace CassandrasCookbook.Shared.Recipe
         public int? Servings { get; set; }
 
         [JsonIgnore]
+        public string PrepTimeAsString => TimeToString(PrepTime);
+        [JsonIgnore]
+        public string TotalTimeAsString => TimeToString(TotalTime);
+
+        [JsonIgnore]
         public bool HasAdditionalInformation => !string.IsNullOrEmpty(Introduction) || Ingredients.Any();
         [JsonIgnore]
         public bool IsValid => 
@@ -31,5 +36,27 @@ namespace CassandrasCookbook.Shared.Recipe
             && Type != Type.All
             && (!Steps.Any() || Steps.All(step => step.IsValid))
             && (!Ingredients.Any() || Ingredients.All(ingredient => ingredient.IsValid));
+
+        private string TimeToString(int? minutes)
+        {
+            if (!minutes.HasValue)
+            {
+                return "?";
+            }
+            var hours = minutes.Value % 60;
+            minutes -= (hours * 60);
+
+            var result = string.Empty;
+            if (hours  > 0)
+            {
+                result += $"{hours}h ";
+            }
+            if (minutes > 0)
+            {
+                result += $"{minutes}m ";
+            }
+
+            return result.Trim();
+        }
     }
 }
