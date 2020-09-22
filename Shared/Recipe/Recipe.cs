@@ -43,8 +43,8 @@ namespace CassandrasCookbook.Shared.Recipe
             {
                 return "?";
             }
-            var hours = minutes.Value % 60;
-            minutes -= (hours * 60);
+            var hours = minutes.Value / 60;
+            minutes = minutes % 60;
 
             var result = string.Empty;
             if (hours  > 0)
