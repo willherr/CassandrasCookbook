@@ -24,11 +24,18 @@
                 <RecipeOverviewComponent Item="Item" IsEditMode="IsEditMode"></RecipeOverviewComponent>
             </div>
 
-            @foreach (var step in Item.Steps)
+            @if (Item.Steps.Any())
             {
                 <div class="mat-layout-grid-cell">
-                    <RecipeStep Step="step" IsEditMode="IsEditMode" Recipe="Item" OnRemove="() => { Item.Steps.Remove(step); StateHasChanged(); }"></RecipeStep>
-                </div>
+                    <div class="mat-layout-grid-inner">
+                        @foreach (var step in Item.Steps)
+                        {
+                            <div class="mat-layout-grid-cell-span-12">
+                                <RecipeStep Step="step" IsEditMode="IsEditMode" Recipe="Item" OnRemove="() => { Item.Steps.Remove(step); StateHasChanged(); }"></RecipeStep>
+                            </div>
+                        }
+                    </div>
+                </div>                
             }
         </div>
     </div>
