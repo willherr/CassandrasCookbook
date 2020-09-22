@@ -12,5 +12,12 @@ window.Utility = {
     },
     copyText: function (text) {
         return navigator.clipboard.writeText(text).catch(_ => false);
+    },
+    share: function (title, text) {
+        return navigator.share({
+            title,
+            text,
+            url: location.href
+        });
     }
 };
