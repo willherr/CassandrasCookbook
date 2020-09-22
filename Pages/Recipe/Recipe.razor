@@ -35,7 +35,7 @@
 
     <MatFAB Class="mat-fab" Icon="@(IsEditMode ? MatIconNames.Save : MatIconNames.Edit)" OnClick="OnClickFAB"></MatFAB>
 
-    <MatDialog @bind-IsOpen="snackBarIsOpen">
+    <MatDialog @bind-IsOpen="SavedEditsOpen">
         <MatDialogContent>Copied edits to clipboard. Send them to Will.</MatDialogContent>
         <MatDialogActions>
             <MatButton OnClick="CloseRecipeModal" Raised="true">Close</MatButton>
@@ -79,7 +79,7 @@
     [Parameter] public CassandrasCookbook.Shared.Recipe.Type Type { get; set; }
     public bool IsNew { get; set; }
     private RecipeItem Item { get; set; }
-    private bool snackBarIsOpen { get; set; }
+    private bool SavedEditsOpen { get; set; }
     private bool HasError { get; set; }
     private Step NewStep { get; set; }
 
@@ -104,6 +104,7 @@
             {
                 NavigationManager.NavigateTo("404");
             }
+            Layout.Layout.Title = Item.Title;
         }
         else
         {
@@ -123,13 +124,14 @@
         await JSRuntime.InvokeVoidAsync("Utility.copyText", System.Text.Json.JsonSerializer.Serialize(Item));
 
         IsEditMode = !IsEditMode;
-        snackBarIsOpen = !IsEditMode;
+        SavedEditsOpen = !IsEditMode;
         if (IsNew)
         {
             RecipeListComponent.NewRecipes.Add(Item);
             NavigationManager.NavigateTo($"recipe/{Item.Title}");
             IsNew = false;
         }
+        Layout.Layout.Title = Item.Title;
     }
 
     private async Task<bool> TestImages()
@@ -175,6 +177,6 @@
 
     private void CloseRecipeModal()
     {
-        snackBarIsOpen = false;
+        SavedEditsOpen = false;
     }
 }
