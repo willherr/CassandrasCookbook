@@ -259,6 +259,18 @@ html, body {
     color: red;
 }
 
+.text-success {
+    color: green;
+}
+
+.opacity-100 {
+    opacity: 1;
+}
+
+.opacity-50 {
+    opacity: .5;
+}
+
 .bg-transparent {
     background: transparent !important;
 }
