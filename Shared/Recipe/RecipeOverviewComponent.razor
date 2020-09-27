@@ -112,7 +112,7 @@
                                     <b>Ingredients</b>
                                     @if (!IsEditMode)
                                     {
-                                        <MatIconButton Style="right:0;position:absolute;" Icon="@(HideIngredients ? MatIconNames.Visibility_off : MatIconNames.Visibility)" OnClick="_ => HideIngredients = !hideIngredients"></MatIconButton>
+                                        <MatIcon Style="right:0;bottom:25%;position:absolute;" Icon="@(HideIngredients ? MatIconNames.Visibility_off : MatIconNames.Visibility)"></MatIcon>
                                     }
                                 </MatListItemPrimaryText>
                                 <MatListItemSecondaryText></MatListItemSecondaryText>
@@ -202,6 +202,10 @@
         if (IsListView)
         {
             NavigationManager.NavigateTo($"recipe/{Item.Title}");
+        }
+        else
+        {
+            HideIngredients = !hideIngredients;
         }
     }
 
