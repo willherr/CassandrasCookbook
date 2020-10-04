@@ -14,10 +14,15 @@ window.Utility = {
         return navigator.clipboard.writeText(text).catch(_ => false);
     },
     share: function (title, text) {
-        return navigator.share({
-            title,
-            text,
-            url: location.href
-        });
+        try {
+            return navigator.share({
+                title,
+                text,
+                url: location.href
+            });
+        }
+        catch (e) {
+            return;
+        }
     }
 };

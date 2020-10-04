@@ -199,7 +199,11 @@
         }
         else
         {
-            await JSRuntime.InvokeVoidAsync("Utility.share", $"New Recipe - {Item.Title}", itemJson);
+            try
+            {
+                await JSRuntime.InvokeVoidAsync("Utility.share", $"New Recipe - {Item.Title}", itemJson);
+            }
+            catch (Exception) { }
         }
         SavedEditsOpen = false;
     }
