@@ -1,27 +1,40 @@
 ﻿@inject NavigationManager NavigationManager
 
-<MatCard @onclick="_ => HideStep = !hideStep">
+<MatCard @onclick="ClickStep">
     <MatCardContent>
         <MatBody2 Class="px-1 my-2" Style="display: flex; align-items: center;">
             @if (IsEditMode)
             {
                 <MatIconButton Icon="@MatIconNames.Remove" OnClick="OnRemove"></MatIconButton>
             }
-            <MatHeadline6 Class="@((HideStep ? "opacity-50" : "") + " m-0 text-nowrap")">Step @StepNumber&nbsp;</MatHeadline6>
+            <MatHeadline6 Class="@((IsCompleted ? "opacity-50" : "") + " m-0 text-nowrap")">Step @StepNumber&nbsp;</MatHeadline6>
             @if (IsEditMode)
             {
                 <MatInputTextComponent Class="w-100 mx-1" @bind-Value="Step.Subtitle" Label="Subtitle"></MatInputTextComponent>
             }
             else if (!string.IsNullOrEmpty(Step.Subtitle))
             {
-                <MatSubtitle1 Class="@((HideStep ? "opacity-50" : "") + " m-0")">-&nbsp;@Step.Subtitle</MatSubtitle1>
+                <MatSubtitle1 Class="@((IsCompleted ? "opacity-50" : "") + " m-0")">-&nbsp;@Step.Subtitle</MatSubtitle1>
             }
-            @if (HideStep)
-            {
-                <span class="ml-auto text-success">Done</span>
-            }
+            <span class="ml-auto">
+                @if (IsCompleted)
+                {
+                    <MatIcon Icon="@MatIconNames.Check_box"></MatIcon>
+                }
+                else
+                {
+                    <MatIcon Class="opacity-50" Icon="@MatIconNames.Check_box_outline_blank"></MatIcon>
+                }
+            </span>
+
         </MatBody2>
-        @if (!HideStep)
+        @if (IsCompleted)
+        {
+            <MatBody2 Class="d-flex mt-0 px-1">
+                <span class="ml-auto">Completed at @CompletedStep.ToString("T")</span>
+            </MatBody2>
+        }
+        else
         {
             if (IsEditMode)
             {
@@ -54,5 +67,14 @@
     [Parameter] public Action OnRemove { get; set; }
     public int StepNumber => Recipe.Steps.IndexOf(Step) + 1;
 
-    public bool HideStep { get => !IsEditMode && hideStep; set => hideStep = value; }
+    public bool IsCompleted { get => !IsEditMode && hideStep; set => hideStep = value; }
+    public DateTime CompletedStep { get; set; }
+
+    public void ClickStep()
+    {
+        if (IsCompleted = !hideStep)
+        {
+            CompletedStep = DateTime.Now;
+        }
+    }
 }
