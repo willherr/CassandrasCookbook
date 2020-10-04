@@ -88,6 +88,7 @@
       }
     ]
   },
+  {"Title":"Apple Dip","Introduction":"A Joyce Schwanke recipe. ","ImageUrl":"https://www.theseasonedmom.com/wp-content/uploads/2018/07/4-Ingredient-Brown-Sugar-Cream-Cheese-Apple-Dip-6-500x500.jpg","Type":"Appetizer","Steps":[{"Subtitle":"","ImageUrl":null,"Instructions":"Combine the first four ingredients. "},{"Subtitle":null,"ImageUrl":null,"Instructions":"Spread on a flat dish, then sprinkle with nuts. "},{"Subtitle":null,"ImageUrl":null,"Instructions":"Serve with sliced apples that have been dipped in 4 cups water and 1 teaspoon lemon juice to prevent discoloration. Dry with towel. "}],"Ingredients":[{"Title":"Cream Cheese","Amount":12,"UnitOfMeasure":"oz","AdditionalNotes":"Soft spread"},{"Title":"White Sugar","Amount":0.25,"UnitOfMeasure":"cup","AdditionalNotes":null},{"Title":"Brown Sugar","Amount":0.75,"UnitOfMeasure":"cup","AdditionalNotes":null},{"Title":"Vanilla","Amount":1,"UnitOfMeasure":"tsp","AdditionalNotes":null},{"Title":"Chopped Nuts","Amount":1,"UnitOfMeasure":"cup","AdditionalNotes":null},{"Title":"Apples","Amount":null,"UnitOfMeasure":null,"AdditionalNotes":"Sliced"}],"PrepTime":5,"TotalTime":10,"Servings":4}, 
 
   {
     "type": "Breakfast",
