@@ -457,6 +457,108 @@
     "TotalTime": 240,
     "Servings": 8
   },
+  {
+    "Title": "Chicken Bacon Ranch Casserole",
+    "Introduction": "This easy chicken bacon ranch casserole is perfect for a quick and simple dinner. We have pasta chicken, easy Alfredo with ranch dressing, bacon, and of course, cheese.",
+    "ImageUrl": "https://myincrediblerecipes.com/wp-content/uploads/2016/06/ranch6.jpg",
+    "Type": "Dinner",
+    "Steps": [
+      {
+        "Subtitle": null,
+        "ImageUrl": null,
+        "Instructions": "Preheat oven to 375 degrees and grease a 9x9 baking dish. Begin boiling a pot of water (pasta will be added at a later step)."
+      },
+      {
+        "Subtitle": null,
+        "ImageUrl": null,
+        "Instructions": "Heat a large skillet over medium heat. Cook bacon until brown and crispy, about 7 minutes. Drain fat and place bacon on a paper towel to absorb the grease."
+      },
+      {
+        "Subtitle": null,
+        "ImageUrl": null,
+        "Instructions": "In a gallon size Ziploc bag, add in the olive oil, diced chicken (raw), and Ranch mix. Shake the bag until the chicken is evenly coated."
+      },
+      {
+        "Subtitle": null,
+        "ImageUrl": null,
+        "Instructions": "Put pasta into pot of boiling water. Add the chicken to the skillet and cook until no longer pink."
+      },
+      {
+        "Subtitle": null,
+        "ImageUrl": null,
+        "Instructions": "Add cooked chicken, alfredo sauce, and pasta to greased baking dish. Sprinkle both cheeses, bacon, and salt/pepper to the top of the alfredo mix and place pan in the oven."
+      },
+      {
+        "Subtitle": null,
+        "ImageUrl": null,
+        "Instructions": "Bake until bubbly and the cheese is melted, about 15 minutes."
+      },
+      {
+        "Subtitle": null,
+        "ImageUrl": null,
+        "Instructions": "Remove from oven and enjoy!"
+      }
+    ],
+    "Ingredients": [
+      {
+        "Title": "Bacon",
+        "Amount": 0.5,
+        "UnitOfMeasure": "lb",
+        "AdditionalNotes": "Cooked and chopped"
+      },
+      {
+        "Title": "Chicken Breast",
+        "Amount": 1,
+        "UnitOfMeasure": "lb",
+        "AdditionalNotes": "Boneless and skinless"
+      },
+      {
+        "Title": "Olive Oil",
+        "Amount": 1,
+        "UnitOfMeasure": "tbsp",
+        "AdditionalNotes": null
+      },
+      {
+        "Title": "Dry Ranch Dressing Mix",
+        "Amount": 1,
+        "UnitOfMeasure": "packet",
+        "AdditionalNotes": null
+      },
+      {
+        "Title": "Pasta",
+        "Amount": 8,
+        "UnitOfMeasure": "oz",
+        "AdditionalNotes": "Your preference"
+      },
+      {
+        "Title": "Cheddar Cheese",
+        "Amount": 0.5,
+        "UnitOfMeasure": "cup",
+        "AdditionalNotes": "Shredded"
+      },
+      {
+        "Title": "Mozzarella Cheese",
+        "Amount": 1,
+        "UnitOfMeasure": "cup",
+        "AdditionalNotes": "Shredded"
+      },
+      {
+        "Title": "Salt/Pepper",
+        "Amount": null,
+        "UnitOfMeasure": null,
+        "AdditionalNotes": "To taste"
+      },
+      {
+        "Title": "Alfredo Sauce",
+        "Amount": 14.5,
+        "UnitOfMeasure": "oz",
+        "AdditionalNotes": "(1 jar)"
+      }
+    ],
+    "PrepTime": 10,
+    "TotalTime": 45,
+    "Servings": 4
+  },
 
   {
     "type": "Lunch",
