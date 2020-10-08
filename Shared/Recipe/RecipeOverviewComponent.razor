@@ -112,7 +112,7 @@
                                     <b>Ingredients</b>
                                     @if (!IsEditMode)
                                     {
-                                        <MatIcon Style="right:0;bottom:25%;position:absolute;" Icon="@(HideIngredients ? MatIconNames.Visibility_off : MatIconNames.Visibility)"></MatIcon>
+                                        <MatIcon @onclick="() => HideIngredients = !hideIngredients" Style="right:0;bottom:25%;position:absolute;" Icon="@(HideIngredients ? MatIconNames.Visibility_off : MatIconNames.Visibility)"></MatIcon>
                                     }
                                 </MatListItemPrimaryText>
                                 <MatListItemSecondaryText></MatListItemSecondaryText>
@@ -121,7 +121,7 @@
                         <MatListDivider></MatListDivider>
                         @if (IsEditMode)
                         {
-                            <MatListItem Style="height:auto; min-height: 48px">
+                            <MatListItem Style="height:auto; min-height: 48px;">
                                 <MatButton Raised="true" OnClick='_ => AddIngredient = true'>Add Ingredient</MatButton>
                             </MatListItem>
                         }
@@ -134,6 +134,7 @@
                                     primaryText += $": {ingredient.Amount} {ingredient.UnitOfMeasure}";
                                 }
                                 <MatListItem Style="height: auto; min-height: 48px;">
+                                    <MatCheckbox Style="align-self: center;" Value="false"></MatCheckbox>
                                     <MatListItemText>
                                         <MatListItemPrimaryText Style="white-space: normal">
                                             @if (IsEditMode)
@@ -202,10 +203,6 @@
         if (IsListView)
         {
             NavigationManager.NavigateTo($"recipe/{Item.Title}");
-        }
-        else
-        {
-            HideIngredients = !hideIngredients;
         }
     }
 
