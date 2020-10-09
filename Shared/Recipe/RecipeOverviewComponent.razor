@@ -133,8 +133,8 @@
                                 {
                                     primaryText += $": {ingredient.Amount} {ingredient.UnitOfMeasure}";
                                 }
-                                <MatListItem Style="height: auto; min-height: 48px;">
-                                    <MatCheckbox Style="align-self: center;" Value="false"></MatCheckbox>
+                                <MatListItem @onclick="() => ingredient.IsSelected = !ingredient.IsSelected" Style="height: auto; min-height: 48px;">
+                                    <MatCheckbox Style="align-self: center;" @bind-Value="ingredient.IsSelected"></MatCheckbox>
                                     <MatListItemText>
                                         <MatListItemPrimaryText Style="white-space: normal">
                                             @if (IsEditMode)
