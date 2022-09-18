@@ -4,5 +4,16 @@
     <ActiveDebugProfile>IIS Express</ActiveDebugProfile>
     <NameOfLastUsedPublishProfile>FolderProfile</NameOfLastUsedPublishProfile>
     <ShowAllFiles>false</ShowAllFiles>
+    <IsLinterEnabled>False</IsLinterEnabled>
+    <ShouldLintJavaScript>True</ShouldLintJavaScript>
+    <ShouldLintJavaScriptReact>True</ShouldLintJavaScriptReact>
+    <ShouldLintTypeScript>True</ShouldLintTypeScript>
+    <ShouldLintTypeScriptReact>True</ShouldLintTypeScriptReact>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DebuggerFlavor>ProjectDebugger</DebuggerFlavor>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <DebuggerFlavor>ProjectDebugger</DebuggerFlavor>
   </PropertyGroup>
 </Project>
