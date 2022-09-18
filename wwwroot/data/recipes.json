@@ -88,8 +88,144 @@
       }
     ]
   },
-  {"Title":"Apple Dip","Introduction":"A Joyce Schwanke recipe. ","ImageUrl":"https://www.theseasonedmom.com/wp-content/uploads/2018/07/4-Ingredient-Brown-Sugar-Cream-Cheese-Apple-Dip-6-500x500.jpg","Type":"Appetizer","Steps":[{"Subtitle":"","ImageUrl":null,"Instructions":"Combine the first four ingredients. "},{"Subtitle":null,"ImageUrl":null,"Instructions":"Spread on a flat dish, then sprinkle with nuts. "},{"Subtitle":null,"ImageUrl":null,"Instructions":"Serve with sliced apples that have been dipped in 4 cups water and 1 teaspoon lemon juice to prevent discoloration. Dry with towel. "}],"Ingredients":[{"Title":"Cream Cheese","Amount":12,"UnitOfMeasure":"oz","AdditionalNotes":"Soft spread"},{"Title":"White Sugar","Amount":0.25,"UnitOfMeasure":"cup","AdditionalNotes":null},{"Title":"Brown Sugar","Amount":0.75,"UnitOfMeasure":"cup","AdditionalNotes":null},{"Title":"Vanilla","Amount":1,"UnitOfMeasure":"tsp","AdditionalNotes":null},{"Title":"Chopped Nuts","Amount":1,"UnitOfMeasure":"cup","AdditionalNotes":null},{"Title":"Apples","Amount":null,"UnitOfMeasure":null,"AdditionalNotes":"Sliced"}],"PrepTime":5,"TotalTime":10,"Servings":4}, 
-  {"Title":"Kale Chips","Introduction":"A 30 Day Slim Down recipe. ","ImageUrl":"https://cdn.apartmenttherapy.info/image/upload/f_auto,q_auto:eco/k%2Farchive%2F8acdb7b57d5b3462a80c1bc851e7b0f2224c2ef6","Type":"Appetizer","Steps":[{"Subtitle":null,"ImageUrl":null,"Instructions":"Preheat oven to 350 degrees. Wash, de-stem, and chop Kale into 1-inch pieces. "},{"Subtitle":null,"ImageUrl":null,"Instructions":"Spread Kale in single layer on sheet pan. "},{"Subtitle":null,"ImageUrl":null,"Instructions":"In a small bowl, whisk together oil, vinegar, salt, garlic powder, and cayenne until blended. "},{"Subtitle":null,"ImageUrl":null,"Instructions":"Pour over Kale and toss to coat. "},{"Subtitle":null,"ImageUrl":null,"Instructions":"Bake until crispy - 15 to 20 minutes in center rack of oven. Turn once during cooking. "}],"Ingredients":[{"Title":"Extra Virgin Olive Oil","Amount":2,"UnitOfMeasure":"Tablespoons","AdditionalNotes":null},{"Title":"Apple Cider Vinegar","Amount":1,"UnitOfMeasure":"Tablespoon","AdditionalNotes":null},{"Title":"Salt","Amount":1.5,"UnitOfMeasure":"Teaspoons","AdditionalNotes":null},{"Title":"Garlic Powder","Amount":1.5,"UnitOfMeasure":"Teaspoons","AdditionalNotes":null},{"Title":"Cayenne Powder","Amount":0.25,"UnitOfMeasure":"Teaspoon","AdditionalNotes":null},{"Title":"Kale","Amount":1,"UnitOfMeasure":"Pound","AdditionalNotes":null}],"PrepTime":5,"TotalTime":20,"Servings":2}, 
+  {
+    "Title": "Apple Dip",
+    "Introduction": "A Joyce Schwanke recipe. ",
+    "ImageUrl": "https://www.theseasonedmom.com/wp-content/uploads/2018/07/4-Ingredient-Brown-Sugar-Cream-Cheese-Apple-Dip-6-500x500.jpg",
+    "Type": "Appetizer",
+    "Steps": [
+      {
+        "Subtitle": "",
+        "ImageUrl": null,
+        "Instructions": "Combine the first four ingredients. "
+      },
+      {
+        "Subtitle": null,
+        "ImageUrl": null,
+        "Instructions": "Spread on a flat dish, then sprinkle with nuts. "
+      },
+      {
+        "Subtitle": null,
+        "ImageUrl": null,
+        "Instructions": "Serve with sliced apples that have been dipped in 4 cups water and 1 teaspoon lemon juice to prevent discoloration. Dry with towel. "
+      }
+    ],
+    "Ingredients": [
+      {
+        "Title": "Cream Cheese",
+        "Amount": 12,
+        "UnitOfMeasure": "oz",
+        "AdditionalNotes": "Soft spread"
+      },
+      {
+        "Title": "White Sugar",
+        "Amount": 0.25,
+        "UnitOfMeasure": "cup",
+        "AdditionalNotes": null
+      },
+      {
+        "Title": "Brown Sugar",
+        "Amount": 0.75,
+        "UnitOfMeasure": "cup",
+        "AdditionalNotes": null
+      },
+      {
+        "Title": "Vanilla",
+        "Amount": 1,
+        "UnitOfMeasure": "tsp",
+        "AdditionalNotes": null
+      },
+      {
+        "Title": "Chopped Nuts",
+        "Amount": 1,
+        "UnitOfMeasure": "cup",
+        "AdditionalNotes": null
+      },
+      {
+        "Title": "Apples",
+        "Amount": null,
+        "UnitOfMeasure": null,
+        "AdditionalNotes": "Sliced"
+      }
+    ],
+    "PrepTime": 5,
+    "TotalTime": 10,
+    "Servings": 4
+  },
+  {
+    "Title": "Kale Chips",
+    "Introduction": "A 30 Day Slim Down recipe. ",
+    "ImageUrl": "https://cdn.apartmenttherapy.info/image/upload/f_auto,q_auto:eco/k%2Farchive%2F8acdb7b57d5b3462a80c1bc851e7b0f2224c2ef6",
+    "Type": "Appetizer",
+    "Steps": [
+      {
+        "Subtitle": null,
+        "ImageUrl": null,
+        "Instructions": "Preheat oven to 350 degrees. Wash, de-stem, and chop Kale into 1-inch pieces. "
+      },
+      {
+        "Subtitle": null,
+        "ImageUrl": null,
+        "Instructions": "Spread Kale in single layer on sheet pan. "
+      },
+      {
+        "Subtitle": null,
+        "ImageUrl": null,
+        "Instructions": "In a small bowl, whisk together oil, vinegar, salt, garlic powder, and cayenne until blended. "
+      },
+      {
+        "Subtitle": null,
+        "ImageUrl": null,
+        "Instructions": "Pour over Kale and toss to coat. "
+      },
+      {
+        "Subtitle": null,
+        "ImageUrl": null,
+        "Instructions": "Bake until crispy - 15 to 20 minutes in center rack of oven. Turn once during cooking. "
+      }
+    ],
+    "Ingredients": [
+      {
+        "Title": "Extra Virgin Olive Oil",
+        "Amount": 2,
+        "UnitOfMeasure": "Tablespoons",
+        "AdditionalNotes": null
+      },
+      {
+        "Title": "Apple Cider Vinegar",
+        "Amount": 1,
+        "UnitOfMeasure": "Tablespoon",
+        "AdditionalNotes": null
+      },
+      {
+        "Title": "Salt",
+        "Amount": 1.5,
+        "UnitOfMeasure": "Teaspoons",
+        "AdditionalNotes": null
+      },
+      {
+        "Title": "Garlic Powder",
+        "Amount": 1.5,
+        "UnitOfMeasure": "Teaspoons",
+        "AdditionalNotes": null
+      },
+      {
+        "Title": "Cayenne Powder",
+        "Amount": 0.25,
+        "UnitOfMeasure": "Teaspoon",
+        "AdditionalNotes": null
+      },
+      {
+        "Title": "Kale",
+        "Amount": 1,
+        "UnitOfMeasure": "Pound",
+        "AdditionalNotes": null
+      }
+    ],
+    "PrepTime": 5,
+    "TotalTime": 20,
+    "Servings": 2
+  },
   {
     "type": "Breakfast",
     "title": "Ultimate Pancakes",
@@ -149,7 +285,96 @@
       }
     ]
   },
-
+  {
+    "Title": "Healthy Granola Recipe",
+    "Introduction": null,
+    "ImageUrl": "https://joyfoodsunshine.com/wp-content/uploads/2016/02/Coconut-Pecan-Granola-Gluten-free-dairy-free-refined-sugar-free-8-894x1024.jpg",
+    "Type": "Breakfast",
+    "Steps": [
+      {
+        "Subtitle": "Prep",
+        "ImageUrl": null,
+        "Instructions": "Preheat oven to 300 degrees. Lightly grease a baking sheet, set aside."
+      },
+      {
+        "Subtitle": "Mix",
+        "ImageUrl": null,
+        "Instructions": "In a large bowl mix together oats, cinnamon, salt and pecans. Set aside."
+      },
+      {
+        "Subtitle": "Melt",
+        "ImageUrl": null,
+        "Instructions": "Melt honey and oil together in the microwave or on the stovetop over low heat until smooth."
+      },
+      {
+        "Subtitle": "Mix Wet Ingredients",
+        "ImageUrl": null,
+        "Instructions": "Remove from heat and add vanilla to warm coconut oil/honey mixture. Stir until combined."
+      },
+      {
+        "Subtitle": "Combine Dry Ingredients",
+        "ImageUrl": null,
+        "Instructions": "Mix wet ingredients into dry ingredients until all dry ingredients are evenly coated."
+      },
+      {
+        "Subtitle": "Bake",
+        "ImageUrl": null,
+        "Instructions": "Spread mixture onto baking sheet. Bake for 30 minutes or until golden brown, stirring the granola halfway through baking time. It may feel soft when you remove it from the oven, but it gets harder and crunchier as it cools."
+      },
+      {
+        "Subtitle": "Cool",
+        "ImageUrl": null,
+        "Instructions": "Allow granola to cool and eat it with yogurt or milk. Store in airtight container."
+      }
+    ],
+    "Ingredients": [
+      {
+        "Title": "Coconut Oil",
+        "Amount": 0.25,
+        "UnitOfMeasure": "cups",
+        "AdditionalNotes": "Melted"
+      },
+      {
+        "Title": "Maple Syrup",
+        "Amount": 0.25,
+        "UnitOfMeasure": "cups",
+        "AdditionalNotes": "Substitutes: Honey"
+      },
+      {
+        "Title": "Pure Vanilla Extract",
+        "Amount": 0.5,
+        "UnitOfMeasure": "tsp",
+        "AdditionalNotes": null
+      },
+      {
+        "Title": "Old-Fashioned Oats",
+        "Amount": 2,
+        "UnitOfMeasure": "cups",
+        "AdditionalNotes": null
+      },
+      {
+        "Title": "Pecans",
+        "Amount": 0.5,
+        "UnitOfMeasure": "cups",
+        "AdditionalNotes": "Raw | Chopped"
+      },
+      {
+        "Title": "Cinnamon",
+        "Amount": 2,
+        "UnitOfMeasure": "tsp",
+        "AdditionalNotes": "Ground"
+      },
+      {
+        "Title": "Salt",
+        "Amount": 0.5,
+        "UnitOfMeasure": "tsp",
+        "AdditionalNotes": "Sea Salt"
+      }
+    ],
+    "PrepTime": 5,
+    "TotalTime": 40,
+    "Servings": 12
+  },
   {
     "type": "Dessert",
     "title": "Cinnamon Doughnut Holes",
@@ -213,7 +438,6 @@
       }
     ]
   },
-
   {
     "type": "Dinner",
     "title": "Caramelized Onion Burgers",
@@ -458,7 +682,75 @@
     "TotalTime": 240,
     "Servings": 8
   },
-  {"Title":"Italian Beef","Introduction":"PM Ladies","ImageUrl":"https://carlsbadcravings.com/wp-content/uploads/2019/10/Italian-Beef-Sandwiches-6-600x900.jpg","Type":"Dinner","Steps":[{"Subtitle":"Prep Early","ImageUrl":null,"Instructions":"Place roast in a freezer bag and add 1 jar of whole pepperoncini with the liquid. Add Italian seasoning and onion. Freeze."},{"Subtitle":"Thaw","ImageUrl":null,"Instructions":"When ready to cook, thaw in refrigerator overnight."},{"Subtitle":"Cook","ImageUrl":null,"Instructions":"Place into the slow cooker and add beef broth. Cover and cook on low for 10 hours."},{"Subtitle":"Serve","ImageUrl":null,"Instructions":"Shred the roast. Using a slotted spoon, serve beef, peppers, and onions onto rolls."}],"Ingredients":[{"Title":"Whole pepperoncini with liquid","Amount":12,"UnitOfMeasure":"oz","AdditionalNotes":"1 jar"},{"Title":"Boneless beef chuck roast","Amount":3.75,"UnitOfMeasure":"lb","AdditionalNotes":"3.5 to 4 lb"},{"Title":"Italian Seasoning","Amount":1,"UnitOfMeasure":"tbsp","AdditionalNotes":null},{"Title":"Sliced Onion","Amount":1,"UnitOfMeasure":"large","AdditionalNotes":null},{"Title":"Beef broth","Amount":1.5,"UnitOfMeasure":"cup","AdditionalNotes":null},{"Title":"Hard Rolls","Amount":12,"UnitOfMeasure":null,"AdditionalNotes":null}],"PrepTime":20,"TotalTime":620,"Servings":6},
+  {
+    "Title": "Italian Beef",
+    "Introduction": "PM Ladies",
+    "ImageUrl": "https://carlsbadcravings.com/wp-content/uploads/2019/10/Italian-Beef-Sandwiches-6-600x900.jpg",
+    "Type": "Dinner",
+    "Steps": [
+      {
+        "Subtitle": "Prep Early",
+        "ImageUrl": null,
+        "Instructions": "Place roast in a freezer bag and add 1 jar of whole pepperoncini with the liquid. Add Italian seasoning and onion. Freeze."
+      },
+      {
+        "Subtitle": "Thaw",
+        "ImageUrl": null,
+        "Instructions": "When ready to cook, thaw in refrigerator overnight."
+      },
+      {
+        "Subtitle": "Cook",
+        "ImageUrl": null,
+        "Instructions": "Place into the slow cooker and add beef broth. Cover and cook on low for 10 hours."
+      },
+      {
+        "Subtitle": "Serve",
+        "ImageUrl": null,
+        "Instructions": "Shred the roast. Using a slotted spoon, serve beef, peppers, and onions onto rolls."
+      }
+    ],
+    "Ingredients": [
+      {
+        "Title": "Whole pepperoncini with liquid",
+        "Amount": 12,
+        "UnitOfMeasure": "oz",
+        "AdditionalNotes": "1 jar"
+      },
+      {
+        "Title": "Boneless beef chuck roast",
+        "Amount": 3.75,
+        "UnitOfMeasure": "lb",
+        "AdditionalNotes": "3.5 to 4 lb"
+      },
+      {
+        "Title": "Italian Seasoning",
+        "Amount": 1,
+        "UnitOfMeasure": "tbsp",
+        "AdditionalNotes": null
+      },
+      {
+        "Title": "Sliced Onion",
+        "Amount": 1,
+        "UnitOfMeasure": "large",
+        "AdditionalNotes": null
+      },
+      {
+        "Title": "Beef broth",
+        "Amount": 1.5,
+        "UnitOfMeasure": "cup",
+        "AdditionalNotes": null
+      },
+      {
+        "Title": "Hard Rolls",
+        "Amount": 12,
+        "UnitOfMeasure": null,
+        "AdditionalNotes": null
+      }
+    ],
+    "PrepTime": 20,
+    "TotalTime": 620,
+    "Servings": 6
+  },
   {
     "Title": "Chicken Bacon Ranch Casserole",
     "Introduction": "This easy chicken bacon ranch casserole is perfect for a quick and simple dinner. We have pasta chicken, easy Alfredo with ranch dressing, bacon, and of course, cheese.",
@@ -561,7 +853,88 @@
     "TotalTime": 45,
     "Servings": 4
   },
-
+  {
+    "Title": "Panera Mac and Cheese",
+    "Introduction": "Decreasing the amount of flour and cooking the flour in butter a little longer will reduce the floury taste and help thin the sauce a little.",
+    "ImageUrl": "https://c1.staticflickr.com/8/7028/6843920803_2cdc9d34b5_b.jpg",
+    "Type": "Dinner",
+    "Steps": [
+      {
+        "Subtitle": "Cook Pasta",
+        "ImageUrl": null,
+        "Instructions": "In a large stockpot, cook pasta according to package directions. Drain well."
+      },
+      {
+        "Subtitle": "Whisk Milk",
+        "ImageUrl": null,
+        "Instructions": "While the pasta cooks, melt the butter in a 4-quart sauce pan over medium heat. When the butter has melted and has started to bubble, whisk in the flour; cook for 1.5 minutes whisking constantly. Gradually whisk in the milk until no lumps remain. Reduce the heat to medium-low and cook milk mixture, whisking frequently, until it thickens and bubbles, about 8 minutes."
+      },
+      {
+        "Subtitle": "Melt Cheese",
+        "ImageUrl": null,
+        "Instructions": "Remove sauce pan from the heat and by the handful, stir in cheese allowing all of the cheese to melt into the sauce before adding more. Stir in the mustard, salt, and hot sauce. Return the sauce pan to the heat and stir in the pasta. Be sure to stir up the sauce from the bottom of the sauce pan and thoroughly coat all of the pasta with sauce. Cook for 1 to 2 minutes over medium-low heat until heated through. Serve hot in bowls with spoons."
+      }
+    ],
+    "Ingredients": [
+      {
+        "Title": "Pipette Pasta",
+        "Amount": 16,
+        "UnitOfMeasure": "oz",
+        "AdditionalNotes": null
+      },
+      {
+        "Title": "Unsalted Butter",
+        "Amount": 4,
+        "UnitOfMeasure": "tbsp",
+        "AdditionalNotes": null
+      },
+      {
+        "Title": "All-Purpose Flour",
+        "Amount": 0.33,
+        "UnitOfMeasure": "cups",
+        "AdditionalNotes": null
+      },
+      {
+        "Title": "Milk",
+        "Amount": 2.5,
+        "UnitOfMeasure": "cups",
+        "AdditionalNotes": "Substitutes: heavy cream or half-and-half"
+      },
+      {
+        "Title": "White or Yellow American Cheese",
+        "Amount": 4,
+        "UnitOfMeasure": "oz",
+        "AdditionalNotes": "Chopped or torn into pieces"
+      },
+      {
+        "Title": "Sharp White Vermont Cheddar",
+        "Amount": 8,
+        "UnitOfMeasure": "oz",
+        "AdditionalNotes": "Shredded"
+      },
+      {
+        "Title": "Dijon Mustard",
+        "Amount": 2,
+        "UnitOfMeasure": "tsp",
+        "AdditionalNotes": "Add more for more flavor"
+      },
+      {
+        "Title": "Kosher Salt",
+        "Amount": 1,
+        "UnitOfMeasure": "tsp",
+        "AdditionalNotes": null
+      },
+      {
+        "Title": "Hot Sauce",
+        "Amount": 0.25,
+        "UnitOfMeasure": "tsp",
+        "AdditionalNotes": "Frank\u0027s or Sriracha"
+      }
+    ],
+    "PrepTime": 5,
+    "TotalTime": 25,
+    "Servings": 4
+  },
   {
     "type": "Lunch",
     "title": "Chicken Salad",

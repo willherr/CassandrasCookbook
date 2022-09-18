@@ -13,7 +13,7 @@
       "url": "css\/site.css"
     },
     {
-      "hash": "sha256-Go95BgWr+PxOSt7OmYkfIUBUvc\/lgsIUs5d1m7gm3Ro=",
+      "hash": "sha256-lQeuhRdf9wu7wbsRaJhMSixmUJcON8yqwMzCqIqNOW8=",
       "url": "data\/recipes.json"
     },
     {
@@ -77,7 +77,7 @@
       "url": "_framework\/icudt.dat"
     },
     {
-      "hash": "sha256-oEAuOFVx\/RJSgapxX2k4XknNuWv7fcHPZ6S+Sypujz8=",
+      "hash": "sha256-fQbn47l3ubCW6ZfkRiXPy7QbgPyGiz1UCkrXkDfXA\/I=",
       "url": "_framework\/blazor.boot.json"
     },
     {
@@ -85,7 +85,7 @@
       "url": "_framework\/Blazored.LocalStorage.dll"
     },
     {
-      "hash": "sha256-5jOSW0iNMw2Q7mw55V3M6sM7pTxzVpg6ANJ+4+xK5D8=",
+      "hash": "sha256-hiilbK6J4Ew26K5015MoX6wypCLkJI5kFbj2TQVd8fg=",
       "url": "_framework\/CassandrasCookbook.dll"
     },
     {
@@ -273,5 +273,5 @@
       "url": "_content\/Toolbelt.Blazor.HeadElement.Services\/script.module.min.js"
     }
   ],
-  "version": "YZfPVt75"
+  "version": "NJ5vHcN7"
 };

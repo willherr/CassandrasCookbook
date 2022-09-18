@@ -8,7 +8,7 @@
   "resources": {
     "assembly": {
       "Blazored.LocalStorage.dll": "sha256-6RRoYeDP3d0xabXmcCMF66wXeJlXVPem28Trs8sQiis=",
-      "CassandrasCookbook.dll": "sha256-5jOSW0iNMw2Q7mw55V3M6sM7pTxzVpg6ANJ+4+xK5D8=",
+      "CassandrasCookbook.dll": "sha256-hiilbK6J4Ew26K5015MoX6wypCLkJI5kFbj2TQVd8fg=",
       "MatBlazor.dll": "sha256-w+DEscEPLXa2QwjGoRMEy1XDOSGPM8O3p9QFXlTiea4=",
       "Microsoft.AspNetCore.Components.dll": "sha256-wbggBXyLjd8kZIXB4RIUX6yj1Gb5bdX\/EfQV3gAmpL0=",
       "Microsoft.AspNetCore.Components.Forms.dll": "sha256-MgQF0zC3QYL80ij0Ms\/SsFRUmvG+b3+NOdqNf7nbq5M=",
